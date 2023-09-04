@@ -1,0 +1,30 @@
+
+.Product-Card-div {
+    margin-top: 20px;
+    outline: 1px solid #333;
+    width: 80%;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px 2px rgba(0, 0, 0, 0.3);
+}
+
+.Product-content {
+    padding: 10px;
+}
+
+.Product-content p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.Product-Card-div img {
+    object-fit: contain;
+    width: 100%;
+    height: 150px;
+    margin-top: 5px;
+    padding: 5px;
+    border-bottom: 1px solid #8b8b8b;
+}
+
+.Product-Card-div:active {
+    transform: scale(0.8);
+}

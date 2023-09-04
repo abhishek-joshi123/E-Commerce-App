@@ -1,0 +1,144 @@
+
+nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.2);
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+}
+
+.azio {
+    width: 25%;
+}
+
+.azio img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.azio a {
+    text-decoration: none;
+    color: #2c4152;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+#firstUl, #secondUl {
+    display: flex;
+    justify-content: end;
+    margin: 5px 10px;
+}
+
+#Nav-span-name {
+    margin: 0 10px;
+    letter-spacing: 1px;
+    font-family: serif;
+    padding-top: 2px;
+}
+
+#firstUl a {
+    text-decoration: none;
+    color: #333;
+}
+#firstUl li {
+    list-style: none;
+    margin: 0 10px;
+    padding-top: 2px;
+    font-family: serif;
+    cursor: pointer;
+}
+
+#firstUl li:hover {
+    color: rgb(100, 100, 255);
+    text-decoration: underline;
+}
+
+#visit {
+    margin: 0 10px;
+    padding: 8px 10px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+#visit:hover {
+    text-decoration: underline;
+}
+.nav-links-filter {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links-filter li {
+    list-style: none;
+    margin: 0 10px;
+    padding-top: 12px;
+    cursor: pointer;
+}
+
+.nav-links-filter li:hover {
+    font-weight: bold;
+}
+
+/* #secondUl input {
+    margin: 5 10px;
+    padding: 0 20px;
+    height: 34px;
+    border: 1px solid #2c4152;
+    border-radius: 20px;
+    background-color: #fffded;
+} */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 5 10px;
+    padding: 0 10px;
+    height: 34px;
+    border: 1px solid #2c4152;
+    border-radius: 20px;
+    background-color: #fffded;
+    overflow: hidden;
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    background: none;
+    flex: 1;
+    padding-left: 10px;
+    letter-spacing: 1px;
+  }
+
+  .search-icon {
+    padding-top: 8px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+.cartAndWish {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartAndWish img {
+    width: 100%;
+    object-fit: contain;
+}

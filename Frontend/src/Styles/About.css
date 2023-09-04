@@ -1,0 +1,113 @@
+
+.about-Div {
+    padding-top: 100px;
+}
+
+.About-Heading {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.About-Heading span {
+    font-size: 34px;
+    color: #2c4152;
+}
+
+.About-Image {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.About-Image img {
+    width: 80%;
+}
+
+.About-Inform {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: lora;
+}
+
+.About-Inform section {
+    width: 80%;
+    height: 200px;
+    background-color: #4a6379;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.About-Inform section p {
+    width: 66%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.About-Inform article {
+    width: 80%;
+    display: flex;
+}
+
+.PHeading {
+    color: #666;
+    font-size: 1.59em;
+    margin: 20px 0;
+}
+
+.PPara {
+    margin: 20px 0;
+    width: 90%;
+    font-size: 14px;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.About-Inform-SecondDiv {
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .PHeading {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .PHeading {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .PHeading {
+        font-size: 1rem;
+    }
+
+    .PPara {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+    .PHeading {
+        font-size: 0.8rem;
+    }
+
+    .PPara {
+        font-size: 10px;
+    }
+
+}

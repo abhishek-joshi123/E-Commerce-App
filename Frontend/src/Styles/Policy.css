@@ -1,0 +1,166 @@
+
+.Policy-Div {
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.Policy-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 50px;
+}
+
+.Policy-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Policy-right img {
+    width: 80%;
+    height: 80%;
+}
+
+.Policy-left {
+    padding: 50px;
+}
+
+.Policy-heading {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.Policy-heading h1{
+    width: 70%;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+}
+
+.Policy-left li {
+    list-style: decimal;
+}
+
+.Policy-left p {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.Policy-left li, .Policy-left p {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.Policy-left a {
+    text-decoration: none;
+    color: #333;
+
+}
+
+.Policy-left a:hover {
+    text-decoration: underline;
+}
+
+.Policy-About {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Policy-About div {
+    width: 90%;
+}
+
+.Policy-About p {
+    width: 90%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+@media screen and (max-width: 1000px) {
+
+    
+    .Policy-heading h1{
+        width: 80%;
+    }
+
+    .Policy-left li, .Policy-left p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 710px) {
+
+    .Policy-heading h1{
+        width: 90%;
+        font-size: 1.5rem;
+    }
+
+    .Policy-left li, .Policy-left p {
+        font-size: 0.8rem;
+    }
+    
+    .Policy-left {
+        padding: 30px;
+    }
+
+    .Down-Heading {
+        font-size: 1rem;
+    }
+    
+    
+    .Policy-About p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .Policy-heading h1{
+        font-size: 1rem;
+    }
+
+    .Policy-left li, .Policy-left p {
+        font-size: 10px;
+    }
+    
+    .Policy-left {
+        padding: 10px;
+    }
+
+    .Down-Heading {
+        font-size: 0.8rem;
+    }
+    
+    .Policy-About p {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+
+    .Policy-left li, .Policy-left p {
+        font-size: 7.5px;
+    }
+    
+    .Down-Heading {
+        font-size: 0.65rem;
+    }
+    
+    
+    .Policy-About p {
+        font-size: 7.5px;
+    }
+
+    
+}

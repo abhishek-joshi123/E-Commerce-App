@@ -1,0 +1,12 @@
+
+.All-Users-div {
+    width: 100%;
+    background-color: #fff;
+}
+
+.All-Users-div h1 {
+    padding: 10px 0;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+}

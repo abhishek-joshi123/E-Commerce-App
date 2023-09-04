@@ -1,0 +1,113 @@
+
+.All-Category-div {
+    width: 100%;
+    background-color: #fff;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.EditCategory-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(38, 38, 38, 0.5)
+}
+
+.EditCategory-modal {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    outline: 1px solid #b2b0b0;
+    border-radius: 20px;
+    box-shadow: 0px 1px 3px #0000000a,0px 10px 28px -4px #00000029;
+    /* box-shadow: 0px 0px 200px 200px #e3e3e3 */
+}
+
+.EditCross-div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.EditCross-div button {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.EditCross-div button:hover {
+    transform: scale(1.2);
+}
+
+.EditCross-div button:active {
+    transform: scale(0.9);
+}
+
+.EditCategory-modal h1 {
+    width: 100%;
+    padding-bottom: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+}
+
+.Edit-category-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Edit-category-form input {
+    margin: 10px;
+    padding: 10px;
+    height: 30px;
+    width: 70%;
+    font-size: 16px;
+    border: none;
+    outline: 1px solid #333;
+    border-radius: 10px;
+}
+
+.Edit-category-form button {
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: dodgerblue;
+    outline: 1px solid #4155f1;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Edit-category-form button:hover {
+    background-color: #fff;
+    color: dodgerblue;
+    transform: scale(1.05);
+}
+
+.Edit-category-form button:active {
+    transform: scale(0.9);
+}

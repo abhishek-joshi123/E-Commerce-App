@@ -1,0 +1,159 @@
+
+.Contact-Div {
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.Contact-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 50px;
+}
+
+.Contact-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contact-right img {
+    width: 80%;
+    height: 80%;
+}
+
+.Contact-left {
+    padding: 50px;
+}
+
+.Contact-heading {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.Contact-heading h1{
+    width: 70%;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+}
+
+.Contact-left p {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.Contact-left a {
+    text-decoration: none;
+    color: #333;
+
+}
+
+.Contact-left a:hover {
+    text-decoration: underline;
+}
+
+.Contact-About {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contact-About div {
+    width: 90%;
+}
+
+.Contact-About p {
+    width: 90%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+@media screen and (max-width: 1000px) {
+
+    
+    .Contact-heading h1{
+        width: 80%;
+    }
+
+    .Contact-left p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 710px) {
+
+    .Contact-heading h1{
+        width: 90%;
+        font-size: 1.5rem;
+    }
+
+    .Contact-left p {
+        font-size: 0.8rem;
+    }
+    
+    .Contact-left {
+        padding: 30px;
+    }
+
+    .Down-Heading {
+        font-size: 1rem;
+    }
+    
+    
+    .Contact-About p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .Contact-heading h1{
+        font-size: 1rem;
+    }
+
+    .Contact-left p {
+        font-size: 10px;
+    }
+    
+    .Contact-left {
+        padding: 10px;
+    }
+
+    .Down-Heading {
+        font-size: 0.8rem;
+    }
+    
+    .Contact-About p {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+
+    .Contact-left p {
+        font-size: 7.5px;
+    }
+    
+    .Down-Heading {
+        font-size: 0.65rem;
+    }
+    
+    
+    .Contact-About p {
+        font-size: 7.5px;
+    }
+
+    
+}

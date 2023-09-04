@@ -1,0 +1,54 @@
+
+.Category-div {
+    width: 100%;
+    background-color: #fff;
+}
+
+.Category-div h1 {
+    padding: 10px 0;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+}
+
+.Adding-category-form {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Adding-category-form input {
+    padding: 10px;
+    height: 30px;
+    width: 50%;
+    font-size: 16px;
+    border: none;
+    outline: 1px solid #333;
+    border-radius: 10px;
+}
+
+.Adding-category-form button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: dodgerblue;
+    outline: 1px solid #4155f1;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Adding-category-form button:hover {
+    background-color: #fff;
+    color: dodgerblue;
+    transform: scale(1.05);
+}
+
+.Adding-category-form button:active {
+    transform: scale(0.9);
+}

@@ -1,0 +1,104 @@
+
+.firstSection {
+    margin-top: 100px;
+}
+
+.Footer-Heading {
+    width: 100%;
+}
+
+.footer-images {
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer-images div {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.footer-images :nth-child(1)::after {
+    content: 'EASY EXCHANGE';
+    font-size: 1rem;
+    position: absolute;
+    bottom: -10px;
+}
+
+.footer-images :nth-child(2)::after {
+    content: '100% HANDPICKED';
+    font-size: 1rem;
+    position: absolute;
+    bottom: -10px;
+}
+
+.footer-images :nth-child(3)::after {
+    content: 'ASSURED QUALITY';
+    font-size: 1rem;
+    position: absolute;
+    bottom: -10px;
+}
+
+.lastSection {
+    width: 100%;
+    background-color: #2c4152;
+    color: #ccc;
+}
+
+.lastSection {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lastSection p {
+    font-size: 1.5rem;
+}
+
+#links a {
+    text-decoration: none;
+    color: #ccc;
+    margin: 20px;
+    font-size: 1.5rem;
+}
+
+#links a:hover {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .footer-images div {
+        font-size: 40px;
+    }
+
+    .footer-images :nth-child(1)::after {
+        font-size: 10px;
+    }
+
+    .footer-images :nth-child(2)::after {
+        font-size: 10px;
+    }
+
+    .footer-images :nth-child(3)::after {
+        font-size: 10px;
+    }
+
+    .lastSection p {
+        font-size: 1rem;
+    }
+    
+    #links a {
+        text-decoration: none;
+        color: #ccc;
+        margin: 20px;
+        font-size: 1rem;
+    }
+}

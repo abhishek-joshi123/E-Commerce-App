@@ -1,0 +1,170 @@
+
+.SignIn-div {
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.SignIn-RightDiv, .SignIn-LeftDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.SignIn-RightDiv img {
+    width: 95%;
+    height: 100%;
+}
+
+.SignIn-LeftDiv form {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Form-Heading {
+    width: 100%;
+    text-align: center;
+ }
+
+ .Form-Heading h1 {
+    font-family: 'Playfair Display', serif;
+ }
+
+ .SignIn-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+ }
+
+ .SignIn-inputs input {
+        width: 70%;
+        height: 40px;
+        padding: 10px;
+        margin: 10px;
+        font-size: 1rem;
+        border: 1px solid #333;
+        border-radius: 10px;
+ }
+
+ .Login-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+
+ }
+
+ .Login-btn a {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+ }
+
+ .Login-btn a:hover {
+    color: blue;
+ }
+
+ .Login-btn button {
+    width: 70%;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s;
+ }
+
+ .Login-btn button:hover {
+      transform: scale(0.95);
+ }
+
+ .Log-btn {
+    background: linear-gradient(-135deg, rgb(97, 87, 255) 0%, rgb(153, 51, 255) 100%);
+    color: white;
+    border: none;
+    font-size: 1em;
+    border-radius: 15px;
+ }
+
+ 
+ .Google-SignIn  {
+    margin: 10px 0;
+    background-color: #fff;
+    color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .Google-SignIn p {
+    padding-left: 10px;
+    padding-right: 5px;
+ }
+
+ .Login-last-para {
+    margin-top: 20px;
+    width: 70%;
+    font-family: system-ui, -apple-system;
+ }
+
+ .Login-last-para span{
+    color: blue;
+    cursor: pointer;
+ }
+
+ @media screen and (max-width: 900px){
+
+    .SignIn-inputs input {
+        width: 100%;
+    }
+
+    .Login-btn button {
+        width: 100%;
+    }
+
+    .Login-last-para {
+        width: 100%;
+     }
+ }
+
+ @media screen and (max-width: 600px){
+
+    .SignIn-inputs {
+        padding: 10px;
+     }
+
+    .Login-btn {
+        padding: 10px;
+    }
+
+    .Login-last-para {
+        font-size: 0.8em;
+     }
+ }
+
+ @media screen and (max-width: 500px) {
+
+     .SignIn-RightDiv {
+        display: none;
+     }
+
+     .SignIn-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+     }
+ }
+

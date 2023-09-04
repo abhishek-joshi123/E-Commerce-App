@@ -1,0 +1,112 @@
+
+.Product-div {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.Product-div h1 {
+    padding: 10px 0;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+}
+
+.Category-select-dropdown {
+    width: 80%;
+    border: 1px solid #aeacac;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.Category-select-dropdown:active {
+    border: none;
+    outline: 1px solid #333;
+}
+
+.Product-input {
+    width: 80%;
+    border: 1px solid #aeacac;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    outline: none;
+}
+.Product-input:active {
+    border: none;
+    outline: 1px solid #333;
+}
+
+.Adding-product-btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: dodgerblue;
+    outline: 1px solid #4155f1;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Adding-product-btn:hover {
+    background-color: #fff;
+    color: dodgerblue;
+    transform: scale(1.05);
+}
+
+.Adding-product-btn:active {
+    transform: scale(0.9);
+}
+
+.updateandDelete-btns {
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+}
+
+.updateandDelete-btns button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 0 10px;
+}
+
+.updateandDelete-btns button:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+.updateandDelete-btns button:active {
+    transform: scale(0.9);
+}
+
+.editing-product-btn {
+    background-color: dodgerblue;
+    outline: 1px solid #4155f1;
+}
+
+.deleting-product-btn {
+    background-color: rgb(255, 30, 30);
+    outline: 1px solid #f14141;
+}
+
+.editing-product-btn:hover {
+    color: dodgerblue;
+}
+
+.deleting-product-btn:hover {
+    color: rgb(255, 30, 30);
+}
