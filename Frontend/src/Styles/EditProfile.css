@@ -1,0 +1,82 @@
+
+.Edit-div {
+    background-color: #fff;
+    width: 100%;
+}
+.Edit-heading {
+    font-size: 35px;
+    text-align: center;
+    color: #333;
+    font-family: 'Lora', serif;
+    font-weight: 200;
+}
+
+.Edit-para {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Edit-Edit-btn {
+    float: right;
+    margin-right: 50px;
+    font-size: 16px;
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.Edit-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form-Edit-div {
+    font-size: 14px;
+    line-height: 24px;
+    width: 70%;
+    height: 60px;
+    padding-bottom: 8px;
+}
+
+.Form-Edit-div label {
+    display: block;
+    color: rgba(0, 0, 0, 0.3);
+    line-height: 2px;
+}
+
+.Form-Edit-div input {
+    appearance: textfield;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0.87);
+    cursor: inherit;
+    margin-top: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.Update-Submit {
+    background-color: #d4a058;
+    color: #fff;
+    font-weight: 700;
+    padding: 7px 0;
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.Update-Submit:hover {
+    outline: 1px solid #fff;
+    outline-offset: -3px;
+}

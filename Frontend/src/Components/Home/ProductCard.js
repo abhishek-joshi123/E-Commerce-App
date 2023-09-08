@@ -21,7 +21,8 @@ export default function ProductCard(props) {
             slug: product.slug,
             description: product.description,
             price: product.price,
-            discount: product.discount
+            discount: product.discount,
+            Quantity: 1
           }
         })
         toast.success(`${product.name.split(' ').slice(0,2).join(' ')} added to cart`)

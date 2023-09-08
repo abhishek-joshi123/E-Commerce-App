@@ -89,7 +89,7 @@ export default function SignUp() {
               />
               <input
                 type="text"
-                placeholder="Enter your address"
+                placeholder="Enter your complete address"
                 value={address}
                 onChange={(e) => {
                   setAdress(e.target.value);

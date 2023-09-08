@@ -3,6 +3,20 @@
     margin-top: 100px;
 }
 
+.Footer-Payment-Heading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #e3e3e3;
+}
+
+.Footer-Payment-Heading img {
+    width: 800px;
+    max-width: 90%;
+    height: 80px;
+}
+
 .Footer-Heading {
     width: 100%;
 }

@@ -15,7 +15,7 @@ export default function PageNotFound() {
         <div className="PageNotFound-left">
               <h1>404 Page Not Found</h1>
               <p>Sorry, but we can't find the page you are looking for...</p>
-              <Link to="/"><button class="image-button"><FaHome style={{fontSize: '16px', marginLeft: '5px', paddingTop: '3px'}}/> Back to Home</button></Link>
+              <Link to="/"><button className="image-button"><FaHome style={{fontSize: '16px', marginLeft: '5px', paddingTop: '3px'}}/> Back to Home</button></Link>
         </div>
       </div>
     </Layout>

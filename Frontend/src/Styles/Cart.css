@@ -20,7 +20,7 @@
 .div-below-image {
     width: 80%;
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .cart-left-div {
@@ -198,6 +198,117 @@
     font-size: 16px;
 }
 
+.location-subheader {
+    text-align: left;
+    padding: 0 30px 20px;
+    color: #333;
+    display: flex;
+}
+
+.location-subheader span {
+    font-size: 40px;
+    color: #333;
+}
+
+.location-subheader div {
+    color: #333;
+    font-size: 16px;
+    display: inline-block;
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    padding: 0 7px;
+}
+
+
+.first-delievery-para {
+    font-weight: 700;
+}
+
+.Second-delievery-para {
+    font-weight: 400;
+    line-height: 2;
+}
+
+.Delievery-Address-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px 30px;
+    margin: 0 20px;
+}
+
+.All-Adresses {
+    display: block;
+    color: #6d6d6d;
+    font-size: 14px;   
+}
+
+.Delievery-name {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.67;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.Address-status {
+    color: #b09975;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.2;
+    padding-bottom: 4px
+}
+
+.delievery-Contact {
+    color: #6d6d6d;
+    font-size: 14px;
+}
+
+.delievery-Contact span {
+    font-weight: 600;
+}
+
+.Delievery-Address-section-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.COD-box {
+    border-radius: 5px;
+    border: .5px dashed #c6c6c6;
+    background-color: #fff;
+    padding: 20px 50px 20px 20px;
+}
+
+
+.COD-Box-Span {
+    font-weight: 600;
+    color: #39b54a;
+    font-size: 14px;
+    line-height: 1.57;
+}
+
+.COD-Box-p {
+    color: #333;
+}
+
+.COD-Box-p span{
+    font-weight: 600;
+}
+
+.Change-Address-btn {
+    margin: 40px 0 0 50px;
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    letter-spacing: .28px;
+    cursor: pointer;
+    display: inline-block;
+    color: #176c93;
+}
+
 @media screen and (max-width: 1280px) {
     .Prices-section {
         width: 100%;
@@ -236,6 +347,10 @@
 
     .div-below-image {
         width: 98%;
+    }
+
+    .Delievery-Address-section {
+        grid-template-columns: 1fr;
     }
 }
 

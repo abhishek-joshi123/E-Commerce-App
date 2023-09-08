@@ -1,17 +1,23 @@
 import React from 'react'
 import '../Styles/Footer.css'
 import footerImage from '../Images/footerImage.jpg'
+import footerImage2 from '../Images/FooterImage2.png'
 import {GiCardExchange} from 'react-icons/gi'
 import {RiHandHeartLine} from 'react-icons/ri'
 import {MdOutlineGppGood} from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Footer() {
+
+  const location = useLocation()
   return (
     <div>
       <>
         <footer>
           <div className="firstSection">
+            {(location.pathname === '/cart' || location.pathname === '/cart/delievery') && <div className= 'Footer-Payment-Heading'>
+              <img src={footerImage2} alt="Not Loaded" />
+            </div>}
             <img className= 'Footer-Heading' src={footerImage} alt="Not Loaded" />
           </div>
           <div className='footer-images'>

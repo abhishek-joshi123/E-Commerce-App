@@ -17,7 +17,7 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: '2px solid #000', 
     boxShadow: 24,
     p: 4,
 };
@@ -25,16 +25,13 @@ const style = {
 export default function CartProducts(props) {
 
   const {item} = props;
-  const {id, name, slug, description, price, discount} = item;
+  const {id, name, slug, description, price, discount, Quantity} = item;
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   
-  const [Quantity, setQuantity] = useState(1)
-
   const [{basket}, dispatch] = useStateValue()
-  console.log(dispatch);
   const handleDeleteProduct = () => {
     dispatch({
         type: 'REMOVE_FROM_BASKET',
@@ -42,6 +39,28 @@ export default function CartProducts(props) {
       })
   }
 
+  const handleIncrement = () => {
+
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        id: id,
+        name: name,
+        slug: slug,
+        description: description,
+        price: price,
+        discount: discount,
+          
+      }
+    })
+  }
+
+  const handleDeccrement = () => {
+    dispatch({
+        type: 'DECREMENT_FROM_BASKET',
+        id: id
+      })
+  }
 
   return (
     <div className="Cart-product-container">
@@ -64,18 +83,18 @@ export default function CartProducts(props) {
             Select quantity
             </Typography>
             <Typography className='change-quantity-p' id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-                <button className='incOrDec' onClick={() => {Quantity > 1 && setQuantity(Quantity => Quantity-1)}}>-</button>
+                <button disabled={Quantity === 1} className='incOrDec' onClick={handleDeccrement}>-</button>
                 <button className='change-quantity-btn'>{Quantity}</button>
-                <button className='incOrDec' onClick={() => {setQuantity(Quantity => Quantity+1)}}>+</button>
+                <button disabled={Quantity === 10} className='incOrDec' onClick={handleIncrement}>+</button>
             </Typography>
             </Box>
         </Modal>
           <div className="Prices-section">
-              <div className='Product-discount-price'>Savings : <span>Rs. {Math.floor((price * 100)/(100 - discount)) - price}</span></div>
+              <div className='Product-discount-price'>Savings : <span>Rs. {Quantity * (Math.floor((price * 100)/(100 - discount)) - price)}</span></div>
               <div className='Prices-section-second-div'>
-                <span className='Product-total-price'>Rs. {Math.floor((price * 100)/(100 - discount))}</span>
+                <span className='Product-total-price'>Rs. {Quantity * (Math.floor((price * 100)/(100 - discount)))}</span>
                 <span className='Product-discount'>({discount}%)</span>
-                <span className='selling-price-span'>Rs. {price}.00</span>
+                <span className='selling-price-span'>Rs. {Quantity * price}.00</span>
               </div>
               <div className="delete-product-from-cart-btn">
                   <button onClick={handleDeleteProduct}>Delete</button>

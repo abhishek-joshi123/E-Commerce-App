@@ -3,7 +3,8 @@ import userModel from '../Models/Usermodel.js'
 import {HashPassword, ComparePassword} from '../Helper/Auth.js'
 import { validationResult } from 'express-validator';
 import JWT from 'jsonwebtoken';
-
+import Usermodel from '../Models/Usermodel.js';
+ 
 
 //  for registering user....
 export const registercontroller = async(req, res) => {
@@ -163,3 +164,41 @@ export const TestController = async (req, res) => {
 }
 
 
+export const UpdateUserController = async(req, res) => {
+
+    // if there are errors, return bad requests and the errors..
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({success:false, Esuccess:true, errors: errors.array()});
+    }
+
+    const {name, email, phone, address} = req.body;
+
+    try {
+        const id = req.user._id
+        const Logineduser = await userModel.findById(id)
+        // checking existing user...
+        const existingUser = await userModel.findOne({email})
+        if(existingUser && ( existingUser.email !== Logineduser.email)) {
+            return res.status(400).send({
+                success: false,
+                Esuccess:false,
+                message: 'User already exists'
+            })
+        }
+        const user = await userModel.findByIdAndUpdate(id, {name, email, phone, address}, {new:true})
+
+        res.status(201).send({
+            success: true,
+            message: 'User Updated successfully',
+            user
+        })
+
+    } catch (error) {
+        res.status(404).send({
+            success: false,
+            message: 'Error in Updating',
+            error
+        })
+    }
+}

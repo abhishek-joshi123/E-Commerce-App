@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from '../../../Layouts/Layout'
 import AdminMenu from '../../../Layouts/AdminMenu'
-import Users from './Users'
+import Orders from './Orders'
 
-export default function User() {
+export default function Order() {
   return (
     <Layout title = {'Dashboard - All Users'}>
       <div className="dashboard-div">
@@ -11,7 +11,7 @@ export default function User() {
                 <AdminMenu/>
             </div>
             <div className="dashboard-left">
-                <Users/>
+                <Orders/>
             </div>
         </div>
     </Layout>

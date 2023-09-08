@@ -18,7 +18,7 @@ export default function AdminMenu() {
                     <Link to="/dashboard/admin/products">All Products</Link>
                 </li>
                 <li>
-                    <Link to="/dashboard/admin/users">Users</Link>
+                    <Link to="/dashboard/admin/orders">Orders</Link>
                 </li>
             </ul>
     </div>

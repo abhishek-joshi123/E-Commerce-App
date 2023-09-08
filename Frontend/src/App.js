@@ -16,7 +16,7 @@ import AdminRoute from './Components/Routes/AdminRoute';
 import AdminDashboard from './Components/Admin/Dashboard';
 import AdminCategory from './Components/Admin/CategorySection/AdminCategory';
 import AdminProduct from './Components/Admin/ProductSection/AdminProduct';
-import User from './Components/Admin/UserSection/User';
+import Order from './Components/Admin/UserSection/Order';
 import Profile from './Components/Users/Profile'; 
 import Orders from './Components/Users/Orders';
 import Products from './Components/Admin/AllProductsSection/Products';
@@ -25,6 +25,7 @@ import Search from './Components/Search';
 import ProductDetails from './Components/Home/ProductDetails';
 import FilterProducts from './Components/Home/FilterProducts';
 import Cart from './Components/Cart/Cart';
+import Delievery from './Components/Cart/Delievery';
 
 
 function App() { 
@@ -40,6 +41,7 @@ function App() {
               <Route path='/contact' element= {<Contact/>}/>
               <Route path='/policy' element= {<Policy/>}/>
               <Route path='/cart' element= {<Cart/>}/>
+              <Route path='/cart/delievery' element= {<Delievery/>}/>
               <Route path='/dashboard' element= {<PrivateRoute />}>
                   <Route path='user' element = {<Dashboard />} />
                   <Route path='user/profile' element = {<Profile />} /> 
@@ -51,7 +53,7 @@ function App() {
                   <Route path='admin/create-product' element = {<AdminProduct />} />
                   <Route path='admin/products' element = {<Products />} />
                   <Route path='admin/products/:slug' element = {<UpdateSection />} />
-                  <Route path='admin/users' element = {<User />} />
+                  <Route path='admin/orders' element = {<Order />} />
               </Route>
               <Route path='/sign-in' element= {<SignIn/>}/>  
               <Route path='/sign-up' element= {<SignUp/>}/>

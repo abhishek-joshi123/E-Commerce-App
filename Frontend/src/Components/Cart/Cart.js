@@ -14,11 +14,30 @@ export default function Cart() {
 
   
   const [{basket}, dispatch] = useStateValue()
-  
   const Price = getBasketTotal(basket)
   const TotalPrice = getBasketTotalPrice(basket)
   const TotalDiscount = getBasketTotalDiscount(basket)
 
+  function filterAndModifyProducts(products) {
+    const productMap = new Map();
+  
+    products.forEach(product => {
+      const id = product.id;
+      if (productMap.has(id)) {
+        productMap.get(id).Quantity += 1;
+      } else {
+        productMap.set(id, { ...product, Quantity: 1 });
+      }
+    });
+  
+    const uniqueProducts = Array.from(productMap.values());
+  
+    return uniqueProducts;
+  }
+  
+  const filteredAndModifiedProducts = filterAndModifyProducts(basket)
+  
+  
   return (
     <Layout title={'Your Shopping bag | AJIO'}>
         <div className="Cart-div">
@@ -33,7 +52,7 @@ export default function Cart() {
                     <Link to="/Wishlist">+  Add from Wishlist</Link>
                   </div>
                   {
-                    basket?.map((item) => {
+                    filteredAndModifiedProducts?.map((item) => {
                       return <CartProducts key={item.id} item={item} />
                     })
                   }

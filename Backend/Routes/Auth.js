@@ -1,13 +1,13 @@
 
 import express  from "express";
-import {logincontroller, registercontroller, TestController, forgotPasswordcontroller} from '../Controller/Auth.js'
+import {logincontroller, registercontroller, TestController, forgotPasswordcontroller, UpdateUserController} from '../Controller/Auth.js'
 import { body } from "express-validator";
 import { requireSignIn, isAdmin } from '../Middleware/FetchUser.js';
 
 // route object...
  
 const router = express.Router();
- 
+  
 // routing  
 //  Register  ||  Method : POST
 router.post('/register',[
@@ -46,6 +46,13 @@ router.get('/user-auth', requireSignIn, (req, res) => {
 router.get('/admin-auth', requireSignIn, isAdmin,  (req, res) => {
     res.status(200).send({ok:true});
 })
+
+router.post('/update-details',[
+    body('name','Enter a valid Name').isLength({min:3}),
+    body('email', 'Enter a valid Email').isEmail(),
+    body('phone', 'Enter a valid Phone number').isLength({min:10}),
+    body('address', 'Enter a valid Address').isLength({min:3}),
+], requireSignIn, UpdateUserController)
 
 
  

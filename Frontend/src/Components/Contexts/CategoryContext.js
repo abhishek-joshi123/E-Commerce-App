@@ -1,8 +1,9 @@
 
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify'
 
-const CategoryContext = createContext();
+const CategoryContext = createContext(); 
 
 const CategoryState = (props) => {
 
@@ -17,7 +18,13 @@ const CategoryState = (props) => {
     const [search, setSearch] = useState('')
     const [Totalsearch, setTotalSearch] = useState(0)
     const [filter, setFilter] = useState('')
+    const navigate = useNavigate()
+    const [activeStep, setActiveStep] = useState(0);
 
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        activeStep === 0 && navigate('/cart/delievery')
+    };
 
     const GetAllCategories = async() => {
 
@@ -148,7 +155,7 @@ const CategoryState = (props) => {
   }
   
     return (
-        <CategoryContext.Provider value={{categories, setCategories, GetAllCategories, checked, setChecked, radio, setRadio, Products, setProducts, GetAllProducts, total, getTotal, setPage, FetchMoreProducts, loading, setLoading, Product, ShowAllProducts, search, setSearch, getTotalSearch, filter, setFilter}}>
+        <CategoryContext.Provider value={{activeStep, setActiveStep, handleNext, categories, setCategories, GetAllCategories, checked, setChecked, radio, setRadio, Products, setProducts, GetAllProducts, total, getTotal, setPage, FetchMoreProducts, loading, setLoading, Product, ShowAllProducts, search, setSearch, getTotalSearch, filter, setFilter}}>
             {props.children}
         </CategoryContext.Provider>
     )
