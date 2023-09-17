@@ -1,31 +1,68 @@
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Cart from '../Images/Cart.png'
-import Heart from '../Images/Heart.png'
 import '../Styles/Navbar.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {IoIosSearch} from 'react-icons/io'
 import { useAuth } from '../Components/Contexts/Auth'
 import { toast } from "react-toastify";
-import ajioLogo from '../Images/ajioLogo.png'
+import Cartopia from '../Images/Cartopia.png'
 import { CategoryContext } from '../Components/Contexts/CategoryContext'
 import Badge from '@mui/material/Badge';
 import { useStateValue } from '../Components/Contexts/CartContext'
+import { MdArrowBack } from 'react-icons/md';
+import {BiShoppingBag} from 'react-icons/bi'
+import {TfiLocationPin} from 'react-icons/tfi'
+import {FaRupeeSign} from 'react-icons/fa'
 import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper'; 
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
+import LinearProgress from '@mui/material/LinearProgress';
 
-const steps = ['Bag', 'Delivery Details', 'Payment'];
-
+ 
 export default function Navbar() {
 
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [Click, setClick] = useState(false)
     const [auth, setAuth] = useAuth()
     const context = useContext(CategoryContext)
-    const {setProducts, search, setSearch, getTotalSearch, setFilter, activeStep} = context
+    const {setProducts, search, setSearch, getTotalSearch, setFilter, loader} = context
     const navigate = useNavigate()
     const [{basket}] = useStateValue()
     const location = useLocation();
+    const [activeFirst, setActiveFirst] = useState(false)
+    const [activeSecond, setActiveSecond] = useState(false)
+    const [activeThird, setActiveThird] = useState(false)
+
+    useEffect(() => {
+        if(location.pathname === '/cart'){
+            setActiveFirst(true);
+            setActiveSecond(false);
+            setActiveThird(false);
+        }
+        else if(location.pathname === '/cart/delivery'){
+            setActiveFirst(false);
+            setActiveSecond(true);
+            setActiveThird(false);
+        }
+        else{
+            setActiveFirst(false);
+            setActiveSecond(false);
+            setActiveThird(true);
+        }
+    },[])
+    
+    useEffect(() => {
+        function handleSearchOpen() {
+          if(window.innerWidth >= 600)
+          setIsSearchOpen(false)
+        }
+    
+        window.addEventListener("resize", handleSearchOpen);
+        handleSearchOpen();
+    
+        return () => {
+          window.removeEventListener("resize", handleSearchOpen);
+        };
+      }, []);
  
     const handleLogout = () => {
 
@@ -59,10 +96,16 @@ export default function Navbar() {
         }
     }
 
+    const handelNavigate = () => {
+        if(location.pathname === '/cart/payment') {
+            navigate('/cart/delivery')
+        }
+    }
+
   return (
         <header>
-            <nav style={{height: location.pathname === '/cart' || location.pathname === '/cart/delievery' ? '110px' : '100px'}}>
-                <div className='azio'><Link to="/"><img src={ajioLogo} alt="" /></Link></div>
+            <nav>
+                <div className='Cartopia'><Link to="/"><img src={Cartopia} alt="" /></Link></div>
                 <div className='links'>
                     <ul id='firstUl'>
                         <span id='Nav-span-name'>{auth?.user?.name}</span>
@@ -76,45 +119,61 @@ export default function Navbar() {
                             ) 
                         }
                         <Link to="/chatbot"><li>Customer Care</li></Link>
-                        <p id='visit'>Visit AJIOLUXE</p>
                     </ul>
                     {
-                        location.pathname === '/cart' || location.pathname === '/cart/delievery' ? (
-                            <Box sx={{ width: '50%' }}>
-                                <Stepper activeStep={activeStep} alternativeLabel>
-                                    {steps.map((label, index) => {
-                                    const stepProps = {};
-                                    const labelProps = {};
-                                
-                                    return (
-                                        <Step key={label} {...stepProps} >
-                                        
-                                        <StepLabel {...labelProps}>
-                                            {label}</StepLabel>
-                                        </Step>
-                                    );
-                                    })}
-                                </Stepper>
-                            </Box>
+                        (location.pathname === '/cart' || location.pathname === '/cart/delivery' || location.pathname === '/cart/payment') ? (
+                            <div className='CheckOut-navigation-div'>
+                                <span className={`CheckOut-navigation-logo ${activeFirst ? 'active1-logo' : 'first-logo'}`} onClick={() =>{navigate('/cart')}}><BiShoppingBag style={{color: '#fff'}}/></span>
+                                <span className='CheckOut-navigation-line'></span>
+                                <span className={`CheckOut-navigation-logo ${activeSecond ? 'active2-logo' : 'second-logo'}`} onClick={handelNavigate}><TfiLocationPin style={{color: '#fff'}}/></span>
+                                <span className='CheckOut-navigation-line'></span>
+                                <span className={`CheckOut-navigation-logo ${activeThird ? 'active3-logo' : 'third-logo'}`} ><FaRupeeSign style={{color: '#fff'}}/></span>
+                            </div>
                         ) : (
-                            <ul id='secondUl'>
-                            <Link className='nav-links-filter' to="/filter-product"><li onClick={() => {setFilter('Men')}}>MEN</li></Link>
-                            <Link className='nav-links-filter' to="/filter-product"><li onClick={() => {setFilter('Women')}}>WOMEN</li></Link>
-                            <Link className='nav-links-filter' to="/filter-product"><li onClick={() => {setFilter('Kids')}}>KIDS</li></Link>
-                            <Link className='nav-links-filter' to="/filter-product"><li onClick={() => {setFilter('Home and kitchen')}}>HOME AND KITCHEN</li></Link>
+                            <div id='secondUl'>
+                            <ul className='nav-links-filter'>
+                                <li onClick={() => {setFilter('Men')}}><Link to="/filter-product">MEN</Link></li>
+                                <li onClick={() => {setFilter('Women')}}><Link to="/filter-product">WOMEN</Link></li>
+                                <li onClick={() => {setFilter('Kids')}}><Link to="/filter-product">KIDS</Link></li>
+                                <li onClick={() => {setFilter('Home and kitchen')}}><Link to="/filter-product">HOME AND KITCHEN</Link></li>
+                            </ul>
                             <form className="search-container" onSubmit={handleSearch}>
-                                <input className="search-input" type="text" placeholder='Search AJIO' value={search} onChange={(e) => {setSearch(e.target.value)}}/>
+                                <input className="search-input" type="text" placeholder='Search Cartopia' value={search} onChange={(e) => {setSearch(e.target.value)}}/>
                                 <i className="search-icon" onClick={handleSearch}><IoIosSearch/></i>
-                            </form> 
-                            <Link className='cartAndWish' to="/Wishlist"><img src={Heart} alt="Wishlist" /></Link>
+                            </form>
+                            {!isSearchOpen && <i className="search-icon-small-screen" onClick={() => {setIsSearchOpen(!isSearchOpen)}}><IoIosSearch/></i>}
+                                {isSearchOpen && <div className='small-screen-search-div'>
+                                    {isSearchOpen && <i className="search-icon-cross" onClick={() =>{setIsSearchOpen(!isSearchOpen)}}><MdArrowBack/></i>}
+                                    <form className="search-container-small-screen" onSubmit={handleSearch}>
+                                            <input className="search-input" type="text" placeholder='Search Cartopia' value={search} onChange={(e) => {setSearch(e.target.value)}}/>
+                                            <i className="search-icon" onClick={handleSearch}><IoIosSearch/></i>
+                                        </form>
+                                </div>
+                                }
+                            {!isSearchOpen && <div className="dropdown">
+                                <button className="dropbtn" onClick={() => {setClick(!Click)}}>Categories</button>
+                                {
+                                    Click && <div className="dropdown-content">
+                                        <li onClick={() => {setFilter('Men')}}><Link to="/filter-product">MEN</Link></li>
+                                        <li onClick={() => {setFilter('Women')}}><Link to="/filter-product">WOMEN</Link></li>
+                                        <li onClick={() => {setFilter('Kids')}}><Link to="/filter-product">KIDS</Link></li>
+                                        <li onClick={() => {setFilter('Home and kitchen')}}><Link to="/filter-product">HOME AND KITCHEN</Link></li>
+                                    </div>
+                                }
+                            </div>}
                             <Badge badgeContent={basket?.length} color="error">
                                 <Link className='cartAndWish' to="/cart" ><img src={Cart} alt="Cart" /></Link>
                             </Badge>
-                        </ul>
+                        </div>
                         )
                     }
                 </div>
             </nav>
+            {
+                loader && <Box sx={{ width: '100%', position: 'fixed', top: '90px', left: '0', '@media screen and (max-width: 400px)': {top: '80px'}, }}>
+                            <LinearProgress />
+                        </Box>
+            }
         </header>
   )
 } 

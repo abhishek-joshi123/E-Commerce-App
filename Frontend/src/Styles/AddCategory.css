@@ -52,3 +52,9 @@
 .Adding-category-form button:active {
     transform: scale(0.9);
 }
+
+@media screen and (max-width: 600px) {
+    .Adding-category-form input {
+        width: 80%;
+    }
+}

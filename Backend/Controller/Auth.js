@@ -1,9 +1,9 @@
 
 import userModel from '../Models/Usermodel.js'
+import OrderModel from '../Models/OrderModel.js'
 import {HashPassword, ComparePassword} from '../Helper/Auth.js'
 import { validationResult } from 'express-validator';
 import JWT from 'jsonwebtoken';
-import Usermodel from '../Models/Usermodel.js';
  
 
 //  for registering user....
@@ -92,6 +92,7 @@ export const logincontroller = async (req,res) => {
                 email: isExistingUser.email,
                 address: isExistingUser.address,
                 phone: isExistingUser.phone,
+                DelieveryAddress: isExistingUser.DelieveryAddress,
                 role: isExistingUser.role
             },
             auth_token
@@ -172,9 +173,9 @@ export const UpdateUserController = async(req, res) => {
         return res.status(400).json({success:false, Esuccess:true, errors: errors.array()});
     }
 
-    const {name, email, phone, address} = req.body;
-
+    
     try {
+        const {name, email, phone, address} = req.body;
         const id = req.user._id
         const Logineduser = await userModel.findById(id)
         // checking existing user...
@@ -198,6 +199,86 @@ export const UpdateUserController = async(req, res) => {
         res.status(404).send({
             success: false,
             message: 'Error in Updating',
+            error
+        })
+    }
+}
+
+
+export const UpdateDeliveryAddressController = async(req, res) => {
+
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({success:false, Esuccess:true, errors: errors.array()});
+    }
+
+    try {
+        const {PinCode, FlatNumber_BuildingName, Locality_Area_Street, Landmark, City, Distict, State} = req.body;
+        const id = req.user._id
+        const user = await userModel.findById(id)
+        user.DelieveryAddress = {PinCode, FlatNumber_BuildingName, Locality_Area_Street, Landmark, City, Distict, State}
+        const auth_token = JWT.sign({_id:user._id}, process.env.JWT_SECRET, {expiresIn: "7d"})
+        await user.save()
+        res.status(201).send({
+            success: true,
+            message: 'User Address updated successfully',
+            user,
+            auth_token
+        })
+    } catch (error) {
+        res.status(404).send({
+            success: false,
+            message: 'Error in Updating Delievery address',
+            error
+        })
+    }
+}
+
+export const getOrdersControllers = async(req, res) => {
+    try {
+        const orders = await OrderModel.find({buyer:req.user._id}).populate('products', '-image').select('-buyer').sort({createdAt:-1});
+        res.status(200).send({
+            success: true,
+            orders
+        })
+    } catch (error) {
+        res.status(404).send({
+            success: false,
+            message: 'Error in Getting Orders',
+            error
+        })
+    }
+}
+
+export const getAllOrdersControllers = async(req, res) => {
+    try {
+        const orders = await OrderModel.find({}).populate('products', '-image').populate('buyer').sort({createdAt:-1});
+        res.status(200).send({
+            success: true,
+            orders
+        })
+    } catch (error) {
+        res.status(404).send({
+            success: false,
+            message: 'Error in Getting Orders',
+            error
+        })
+    }
+}
+
+export const statusUpdateController = async(req, res) => {
+    try {
+        const {OrderedId} = req.params;
+        const {status} = req.body;
+        const orders = await OrderModel.findByIdAndUpdate(OrderedId, {status}, {new:true});
+        res.status(200).send({
+            success: true,
+            orders
+        })
+    } catch (error) {
+        res.status(404).send({
+            success: false,
+            message: 'Error in Upadting status of orders',
             error
         })
     }

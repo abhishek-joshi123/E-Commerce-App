@@ -66,14 +66,14 @@
 }
 
 .updateandDelete-btns {
-    width: 80%;
+    width: 100%;
     text-align: center;
     padding: 10px;
 }
 
 .updateandDelete-btns button {
     padding: 10px 20px;
-    margin-top: 20px;
+    margin: 20px;
     font-size: 16px;
     border: none;
     color: #fff;
@@ -81,7 +81,6 @@
     border-radius: 20px;
     cursor: pointer;
     transition: 0.5s;
-    margin: 0 10px;
 }
 
 .updateandDelete-btns button:hover {

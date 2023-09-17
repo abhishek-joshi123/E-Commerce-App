@@ -1,6 +1,6 @@
 
 import express  from "express";
-import {logincontroller, registercontroller, TestController, forgotPasswordcontroller, UpdateUserController} from '../Controller/Auth.js'
+import {logincontroller, registercontroller, TestController, forgotPasswordcontroller, UpdateUserController, UpdateDeliveryAddressController, getOrdersControllers, getAllOrdersControllers, statusUpdateController} from '../Controller/Auth.js'
 import { body } from "express-validator";
 import { requireSignIn, isAdmin } from '../Middleware/FetchUser.js';
 
@@ -47,6 +47,7 @@ router.get('/admin-auth', requireSignIn, isAdmin,  (req, res) => {
     res.status(200).send({ok:true});
 })
 
+// update user details
 router.post('/update-details',[
     body('name','Enter a valid Name').isLength({min:3}),
     body('email', 'Enter a valid Email').isEmail(),
@@ -54,6 +55,26 @@ router.post('/update-details',[
     body('address', 'Enter a valid Address').isLength({min:3}),
 ], requireSignIn, UpdateUserController)
 
+// update delievery address
+router.post('/update-delivery-address',[
+    body('PinCode','Enter a valid PinCode').isDecimal(),
+    body('FlatNumber_BuildingName', 'Flat Number or building name is required').isLength({min:3}),
+    body('Locality_Area_Street', 'Locality, Area or Street is required').isLength({min:3}),
+    body('Landmark', 'Landmark is required').isLength({min:3}),
+    body('City', 'City is required').isLength({min:3}),
+    body('Distict', 'Distict is required').isLength({min:3}),
+    body('State', 'State is required').isLength({min:3}),
+], requireSignIn, UpdateDeliveryAddressController)
+
+
+//  orders
+router.get('/orders', requireSignIn,  getOrdersControllers);
+
+//  All-porders
+router.get('/all-orders', requireSignIn, isAdmin,  getAllOrdersControllers);
+
+//  Status Update
+router.put('/orders-status/:OrderedId', requireSignIn, isAdmin,  statusUpdateController);
 
  
 export default router;

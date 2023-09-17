@@ -3,6 +3,15 @@ import fs from 'fs'
 import ProductModel from '../Models/ProductModel.js ';
 import slugify from 'slugify';
 import CategorYmodel from '../Models/CategorYmodel.js'
+import OrderModel from '../Models/OrderModel.js';
+import braintree from 'braintree'
+
+let gateway = new braintree.BraintreeGateway({
+    environment: braintree.Environment.Sandbox,
+    merchantId: process.env.BRAINTREE_MERCHANT_ID,
+    publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+    privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+  });
 
 
 export const createProductController = async(req, res) => {
@@ -359,6 +368,61 @@ export const filterAllCategoriesController = async(req, res) => {
             message: `${products.length} Products Available`,
             products 
         }) 
+    } catch (error) {
+        res.status(400).send({
+            success: false,
+            message: 'some error occured',
+            error 
+        })
+    }
+}
+
+//  token...
+export const braintreeController = async(req, res) => {
+    try {
+        gateway.clientToken.generate({}, function(error, response) {
+            if(error) {
+                return res.status(400).send(err)
+            } else{
+                res.send(response);
+            }
+        })
+    } catch (error) {
+        res.status(400).send({
+            success: false,
+            message: 'some error occured',
+            error 
+        })
+    }
+}
+
+// payment..
+export const braintreePaymentController = async(req, res) => {
+    try {
+        const {cart, nonce} = req.body
+        let total = 0;
+        cart.map((item) => {total += item.price});
+        let newTransaction = gateway.transaction.sale({
+            amount: total,
+            paymentMethodNonce: nonce,
+            options: {
+                submitForSettlement:true
+            }
+        },
+        async (error, result) => {
+            if(result) {
+                const order = new OrderModel({
+                    products: cart.map(item => item.id),
+                    payment: result,
+                    buyer: req.user._id,
+                })
+                await order.save();
+                res.json({ok: true})
+            } else{
+                return res.status(400).send(error);
+            }
+        }
+        )
     } catch (error) {
         res.status(400).send({
             success: false,

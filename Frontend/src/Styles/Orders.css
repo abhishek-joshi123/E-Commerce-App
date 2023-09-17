@@ -1,0 +1,146 @@
+
+.MyOrders-div {
+    background-color: #fff; 
+    width: 100%;
+    color: #323232;
+    font-size: 34px;
+    font-family: 'Lora', serif;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.Start-shopping-btn {
+    background-color: #d4a058;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.Start-shopping-btn:hover {
+    outline: 1px solid #fff;
+    outline-offset: -3px;
+}
+
+.all-ordered-products {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.Ordered-product-div {
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+    outline: 1px solid #e2ebf5;
+    background-color: #f9fcff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #f2f8ff;
+}
+
+.ordered-table {
+    width: 100%;
+    outline: 1px solid #999;
+    background-color: #f2f8fe;
+    border-radius: 10px;
+    padding: 5px 0;
+}
+
+.table-body td {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.table-head th {
+    font-size: 20px;
+    color: dodgerblue;
+}
+
+.payment-success {
+    color: #27b74a;
+}
+
+.payment-failed {
+    color: #b72727;
+}
+
+.ordered-products-list2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.ordered-product2 {
+    display: flex;
+    gap: 5px;
+    width: 300px;
+    outline: 1px solid #999;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.ordered-product2 img {
+    width: 100px;
+    height: full;
+    object-fit: cover;
+    padding: 0 10px;
+}
+
+.ordered-product-div {
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 10px;
+}
+
+.ordered-product-div span {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.26;
+    text-align: left;
+    font-family: 'Lora', serif;
+}
+
+.ordered-product-price {
+    color: #27b74a;
+}
+
+.ordered-product-div p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .table-body td {
+        font-size: 14px;
+    }
+    
+    .table-head th {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .table-body td {
+        font-size: 8px;
+    }
+    
+    .table-head th {
+        font-size: 10px;
+    }
+}

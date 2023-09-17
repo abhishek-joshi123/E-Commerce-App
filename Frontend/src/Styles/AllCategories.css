@@ -1,6 +1,6 @@
 
 .All-Category-div {
-    width: 100%;
+    width: 100%; 
     background-color: #fff;
     padding-top: 50px;
     display: flex;
@@ -110,4 +110,21 @@
 
 .Edit-category-form button:active {
     transform: scale(0.9);
+}
+
+
+@media screen and (max-width: 800px) {
+    .EditCategory-modal {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .EditCategory-modal {
+        width: 90%;
+    }
+
+    .Edit-category-form input {
+        width: 90%;
+    }
 }

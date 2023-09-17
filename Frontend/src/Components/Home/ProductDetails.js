@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../../Layouts/Layout'
 import '../../Styles/ProductDetails.css'
 import { toast } from 'react-toastify'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {BiShoppingBag} from 'react-icons/bi'
 import {CiLocationOn} from 'react-icons/ci'
 import { useStateValue } from '../Contexts/CartContext'
@@ -14,6 +14,7 @@ export default function ProductDetails() {
     const [Product, setProduct] = useState([])
     const params = useParams()
     const {slug} = params
+    const navigate = useNavigate()
 
     useEffect(() => {
         getProduct()
@@ -53,6 +54,23 @@ export default function ProductDetails() {
         toast.success(`${Product.name.split(' ').slice(0,2).join(' ')} added to cart`)
     }
 
+    const AddToBasketAndNavigate = () => {
+        // dispatch the item into the data layer
+        dispatch({
+          type: 'ADD_TO_BASKET',
+          item: {
+            id: Product._id,
+            name: Product.name,
+            slug: Product.slug,
+            description: Product.description,
+            price: Product.price,
+            discount: Product.discount
+          }
+        })
+        toast.success(`${Product.name.split(' ').slice(0,2).join(' ')} added to cart`)
+        navigate('/cart')
+    }
+
   return (
     <Layout>
         <div className="ProductDetails-div">
@@ -81,7 +99,7 @@ export default function ProductDetails() {
                 <div className="Product-details-Butttons">
                     <button className='Product-Bag-btn' onClick={AddToBasket}><BiShoppingBag/> Add To Bag</button>
                     <div className='Product-details-Butttons-div'>HANDPICKED STYLES | ASSURED QUALITY</div>
-                    <button className='Product-detail-btn'>Buy Now</button>
+                    <button className='Product-detail-btn' onClick={AddToBasketAndNavigate}>Buy Now</button>
                 </div>
             </div>
         </div>

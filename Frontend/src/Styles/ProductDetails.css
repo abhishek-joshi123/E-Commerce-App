@@ -128,6 +128,11 @@
     border: none;
     outline: none;
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
 }
 
 .Product-Bag-btn:hover {
@@ -144,6 +149,7 @@
     color: #d5a249;
     border: 1px solid #d5a249;
     font-size: 16px;
+    border-radius: 10px;
 }
 
 .Product-detail-btn:hover {
@@ -166,4 +172,11 @@
     display: grid;
     grid-template-columns: 1fr;
 }
+}
+
+@media screen and (max-width: 400px) {
+
+    .ProductDetails-div {
+        padding-top: 90px;
+    }
 }

@@ -140,3 +140,18 @@
     display: block;
     padding-top: 10px;
 }
+
+.delivery-address-alert {
+    border: 1px solid #eee;
+    padding: 15px;
+    background-color: #fafafa;
+    width: 100%;
+}
+
+.delivery-address-alert span {
+    font-size: 14px;
+    color: #202020;
+    font-weight: 400;
+    word-wrap: break-word;
+    word-break: break-all;
+}

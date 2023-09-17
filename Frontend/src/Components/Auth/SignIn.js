@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Layout from '../../Layouts/Layout'
 import '../../Styles/SignIn.css'
 import LoginImage from '../../Images/LoginImage.jpg'
@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {FcGoogle} from 'react-icons/fc'
 import { toast } from "react-toastify";
 import { useAuth } from '../Contexts/Auth'
+import { CategoryContext } from '../Contexts/CategoryContext'
 
 
 export default function SignIn() {
@@ -14,13 +15,15 @@ export default function SignIn() {
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
     const [auth, setAuth] = useAuth()
+    const context = useContext(CategoryContext)
+    const {setLoader} = context;
     const location = useLocation()
 
     const HandleSubmit = async (e) => {
       e.preventDefault();
 
       try {
-        
+        setLoader(true);
         const response = await fetch(`http://localhost:5000/api/auth/login`, {
           method: 'POST',
           headers: {
@@ -42,14 +45,15 @@ export default function SignIn() {
         }
         else{
           if(json.Esuccess)
-            toast.error(json.errors[0].msg)
-          else
-            toast.error(json.message)
-        }
-  
-      } catch (error) {
-        toast.error("Something went wrong");
-      }
+          toast.error(json.errors[0].msg)
+        else
+        toast.error(json.message)
+    }
+      setLoader(false);
+    } catch (error) {
+        console.error("Something went wrong");
+        setLoader(false);
+    }
     };
 
   return (

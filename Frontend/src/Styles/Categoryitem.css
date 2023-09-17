@@ -1,9 +1,11 @@
 
 .CategoryItem-div {
-    width: 70%;
+    width: 70%; 
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    /* outline: 1px solid red; */
 }
 
 .category-name {
@@ -11,6 +13,7 @@
     font-weight: 600;
     margin: 10px;
 }
+
 
 .edit-btn {
     background-color: dodgerblue;
@@ -54,8 +57,22 @@
 @media screen and (max-width: 1200px) {
     .CategoryItem-div {
         width: 90%;
-        margin: 10px 0;
-        display: flex;
-        justify-content: space-between;
     }
+}
+
+@media screen and (max-width: 520px) {
+    .CategoryItem-div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .CategoryItem-div {
+        flex-direction: column;
+    }
+
+    .category-name {
+        font-size: 25px;
+    }
+    
 }

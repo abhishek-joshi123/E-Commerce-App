@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../../Layouts/Layout";
 import "../../Styles/SignIn.css";
 import LoginImage from "../../Images/LoginImage.jpg";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { CategoryContext } from "../Contexts/CategoryContext";
 
  
 export default function SignUp() {
+  
+  const context = useContext(CategoryContext)
+  const {setLoader} = context;
+
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +26,7 @@ export default function SignUp() {
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      
+      setLoader(true);
       const response = await fetch(`http://localhost:5000/api/auth/register`, {
         method: 'POST',
         headers: {
@@ -31,20 +36,22 @@ export default function SignUp() {
       })
 
       const json = await response.json()
-
+      
       if(json.success){
         navigate('/sign-in')
         toast.success(json.message)
       }
       else{
         if(json.Esuccess)
-          toast.error(json.errors[0].msg)
-        else
-          toast.error(json.message)
-      }
-
-    } catch (error) {
-      toast.error("Something went wrong");
+        toast.error(json.errors[0].msg)
+      else
+      toast.error(json.message)
+  }
+    setLoader(false);
+    
+  } catch (error) {
+        toast.error("Something went wrong");
+        setLoader(false);
     }
   };
   

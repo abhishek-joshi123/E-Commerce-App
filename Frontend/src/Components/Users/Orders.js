@@ -1,9 +1,11 @@
-
+ 
 import React from 'react'
 import Layout from '../../Layouts/Layout'
 import UserMenu from '../../Layouts/UserMenu'
+import AllOrders from './AllOrders'
 
 export default function Orders() {
+
   return (
     <Layout title = {'Dashboard - Your Orders '}>
       <div className="dashboard-div">
@@ -11,7 +13,7 @@ export default function Orders() {
                 <UserMenu/>
             </div>
             <div className="dashboard-left">
-              <h1>orders</h1>
+              <AllOrders/>
             </div>
         </div>
     </Layout>

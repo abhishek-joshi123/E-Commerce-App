@@ -85,7 +85,6 @@
 }
 
 .Product-card-home-page {
-    width: 323px;
     margin: 10px;
     padding: 10px;
     outline: 5px solid #f3efef;
@@ -95,8 +94,10 @@
 .Product-card-home-page img {
     width: 100%;
     height: 200px;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top;
     margin-bottom: 6px;
+    border-radius: 10px;
 }
 
 .Product-name {
@@ -128,7 +129,7 @@
 .Product-Buttons button {
     padding: 5px;
     width: 150px;
-    margin: 5px 0;
+    margin: 10px auto;
     cursor: pointer;
 }
 
@@ -137,6 +138,11 @@
     color: #fff;
     border: none;
     outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
 }
 
 .Bag-btn:hover {
@@ -148,6 +154,7 @@
     background-color: #fff;
     color: #d5a249;
     border: 1px solid #d5a249;
+    border-radius: 10px;
 }
 
 .detail-btn:hover {
@@ -160,6 +167,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .show-box {
@@ -190,4 +198,77 @@
 
 .search-alert span{
     font-size: 0.7rem;
+}
+
+
+.Categories-Collapse-div {
+    width: 100%;
+    cursor: pointer;
+    display: none;
+    padding: 0 10px;
+}
+
+.Price-filter-section {
+    margin-top: 20px;
+}
+
+.reset-all-btn2 {
+    color: #27b74a;
+    cursor: pointer;
+}
+
+.Home-Filter-heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.Filter-btn-small-screen {
+    background-color: dodgerblue;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 20px;
+    width: 150px;
+    padding: 5px 0;
+    cursor: pointer;
+    border: 2px solid blue;
+}
+
+@media screen and (max-width: 1000px) {
+    .Categories-Collapse-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .Home-left{
+        display: none; 
+    }
+
+    .home-Div {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .Product-card-home-page {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .Product-card-home-page {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .home-Div {
+        padding-top: 90px;
+    }
 }

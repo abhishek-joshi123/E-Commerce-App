@@ -15,9 +15,9 @@ export default function AdminDashboard() {
             </div>
             <div className="dashboard-left">
               <div className="Default-Div">
-              <div> Admin name : <p>{auth?.user?.name}</p></div>
-              <div> Admin Email : <p>{auth?.user?.email}</p></div>
-              <div> Admin Contact : <p>{auth?.user?.phone}</p></div>
+              <p> Admin name : <span>{auth?.user?.name}</span></p>
+              <p> Admin Email : <span>{auth?.user?.email}</span></p>
+              <p> Admin Contact : <span>{auth?.user?.phone}</span></p>
               </div>
             </div>
         </div>

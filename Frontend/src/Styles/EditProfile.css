@@ -3,6 +3,7 @@
     background-color: #fff;
     width: 100%;
 }
+
 .Edit-heading {
     font-size: 35px;
     text-align: center;
@@ -74,9 +75,23 @@
     height: 40px;
     cursor: pointer;
     margin-bottom: 20px;
+    border-radius: 20px;
 }
 
 .Update-Submit:hover {
     outline: 1px solid #fff;
     outline-offset: -3px;
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .Edit-heading {
+        font-size: 25px;
+        font-weight: 200;
+    }
+    
+    .Edit-para {
+        font-size: 12px;
+    }
 }

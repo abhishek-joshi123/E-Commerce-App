@@ -31,5 +31,5 @@ app.use('/api/product', ProductRoute)
 
 
 app.listen(port, () => {
-    console.log(`Ajio backend is running at localhost:${port}`);
+    console.log(`Cartopia backend is running at localhost:${port}`);
 })

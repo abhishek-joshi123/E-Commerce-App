@@ -26,6 +26,7 @@ import ProductDetails from './Components/Home/ProductDetails';
 import FilterProducts from './Components/Home/FilterProducts';
 import Cart from './Components/Cart/Cart';
 import Delievery from './Components/Cart/Delievery';
+import Payment from './Components/Cart/Payment';
 
 
 function App() { 
@@ -35,13 +36,14 @@ function App() {
         <Routes>
               <Route path='/' element= {<Home/>}/>
               <Route path='/search/:search' element= {<Search/>}/>
-              <Route path='/product/:slug' element= {<ProductDetails/>}/>
               <Route path='/filter-product' element= {<FilterProducts/>}/> 
-              <Route path='/about' element= {<About/>}/>
+              <Route path='/product/:slug' element= {<ProductDetails/>}/>
+              <Route path='/about' element= {<About/>}/> 
               <Route path='/contact' element= {<Contact/>}/>
               <Route path='/policy' element= {<Policy/>}/>
               <Route path='/cart' element= {<Cart/>}/>
-              <Route path='/cart/delievery' element= {<Delievery/>}/>
+              <Route path='/cart/delivery' element= {<Delievery/>}/>
+              <Route path='/cart/payment' element= {<Payment/>}/>
               <Route path='/dashboard' element= {<PrivateRoute />}>
                   <Route path='user' element = {<Dashboard />} />
                   <Route path='user/profile' element = {<Profile />} /> 

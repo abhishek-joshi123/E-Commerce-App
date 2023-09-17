@@ -39,3 +39,9 @@
 .Menu-div ul li a:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 500px) {
+    .Menu-div {
+        padding: 10px;
+    }
+}

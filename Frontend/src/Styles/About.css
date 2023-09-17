@@ -98,7 +98,13 @@
     .PPara {
         font-size: 12px;
     }
+}
 
+@media screen and (max-width: 400px) {
+
+    .about-Div {
+        padding-top: 70px;
+    }
 }
 
 @media screen and (max-width: 300px) {

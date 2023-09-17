@@ -17,10 +17,6 @@
     height: 80px;
 }
 
-.Footer-Heading {
-    width: 100%;
-}
-
 .footer-images {
     height: 100px;
     display: grid;
@@ -114,5 +110,12 @@
         color: #ccc;
         margin: 20px;
         font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .firstSection {
+        padding-top: 90px;
     }
 }

@@ -27,12 +27,13 @@ export default function ProductCard(props) {
         })
         toast.success(`${product.name.split(' ').slice(0,2).join(' ')} added to cart`)
     }
+
  
   return (
     <div className='Product-card-home-page'>
         <img src={`http://localhost:5000/api/product/product-image/${product._id}`} alt="image" />
             <div className="Product-content-home-pagge">
-                <div className='Product-name'>{product.name.substring(0,20)}...</div>
+                <div className='Product-name'>{product.name.substring(0,16)}...</div>
                 <div className='Product-description'>{product.description.substring(0,30)}...</div>
                 <div className="Product-price">₹{product.price}</div>
                 <div className="Product-Buttons">

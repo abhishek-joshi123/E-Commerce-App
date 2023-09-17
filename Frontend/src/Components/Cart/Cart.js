@@ -3,43 +3,27 @@ import React, { useState } from 'react'
 import Layout from '../../Layouts/Layout'
 import '../../Styles/Cart.css'
 import CartImage from '../../Images/CartImage.jpg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import SubTotal from './SubTotal'
-import { getBasketTotal, getBasketTotalDiscount, getBasketTotalPrice } from '../Contexts/Reducer'
+import { filterAndModifyProducts, getBasketTotal, getBasketTotalDiscount, getBasketTotalPrice } from '../Contexts/Reducer'
 import { useStateValue } from '../Contexts/CartContext'
 import CartProducts from './CartProducts'
 
 
-export default function Cart() {
+export default function Cart() { 
 
-  
+  const navigate = useNavigate()
   const [{basket}, dispatch] = useStateValue()
   const Price = getBasketTotal(basket)
   const TotalPrice = getBasketTotalPrice(basket)
   const TotalDiscount = getBasketTotalDiscount(basket)
 
-  function filterAndModifyProducts(products) {
-    const productMap = new Map();
-  
-    products.forEach(product => {
-      const id = product.id;
-      if (productMap.has(id)) {
-        productMap.get(id).Quantity += 1;
-      } else {
-        productMap.set(id, { ...product, Quantity: 1 });
-      }
-    });
-  
-    const uniqueProducts = Array.from(productMap.values());
-  
-    return uniqueProducts;
-  }
   
   const filteredAndModifiedProducts = filterAndModifyProducts(basket)
   
   
   return (
-    <Layout title={'Your Shopping bag | AJIO'}>
+    <Layout title={'Your Shopping bag | Cartopia'}>
         <div className="Cart-div">
           <div className='Cart-div-image' >
               <img src={CartImage} alt="image" />
@@ -49,14 +33,22 @@ export default function Cart() {
                   <div className="cart-Items-Heading">
                     <span className='my-bag-span'>My bag</span>
                     <span className='quantity-span'>{`(${basket.length} item)`}</span>
-                    <Link to="/Wishlist">+  Add from Wishlist</Link>
                   </div>
                   {
-                    filteredAndModifiedProducts?.map((item) => {
-                      return <CartProducts key={item.id} item={item} />
-                    })
+                    basket.length == 0 ? (
+                      <div className="Products-empty">
+                        <div className="show-box">
+                              <p>Your Shopping Bag is Empty!!</p>
+                              <button className='Continue-shopping-btn' onClick={() =>{navigate('/')}}>Continue Shopping</button>
+                        </div>
+                    </div>
+                    ) : (
+                      filteredAndModifiedProducts?.map((item) => {
+                        return <CartProducts key={item.id} item={item} />
+                      })
+                    )
                   }
-              </div>
+              </div> 
               <div className="cart-right-div">
                   <SubTotal Price={Price} TotalPrice={TotalPrice} TotalDiscount={TotalDiscount}/>
               </div>

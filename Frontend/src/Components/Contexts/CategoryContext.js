@@ -1,7 +1,7 @@
 
 import { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify'
+import { addDays, format, isToday, isTomorrow } from 'date-fns';
 
 const CategoryContext = createContext(); 
 
@@ -18,13 +18,19 @@ const CategoryState = (props) => {
     const [search, setSearch] = useState('')
     const [Totalsearch, setTotalSearch] = useState(0)
     const [filter, setFilter] = useState('')
-    const navigate = useNavigate()
-    const [activeStep, setActiveStep] = useState(0);
-
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        activeStep === 0 && navigate('/cart/delievery')
-    };
+    const [loader, setLoader] = useState(false)
+    
+    const currentDate = new Date();
+    const futureDate = addDays(currentDate, 5);
+    let displayText;
+    if (isToday(futureDate)) {
+      displayText = 'Today';
+    } else if (isTomorrow(futureDate)) {
+      displayText = 'Tomorrow';
+    } else {
+      displayText = format(futureDate, 'dd MMM');
+    }
+    const [deliveryDate, setDeliveryDate] = useState(displayText)
 
     const GetAllCategories = async() => {
 
@@ -42,10 +48,10 @@ const CategoryState = (props) => {
             setCategories(json.category)
           }
           else{
-            toast.error(json.message)
+            console.error(json.message)
           }
         } catch (error) {
-          toast.error("Something went wrong");
+          console.error("Something went wrong");
         }
     }
     
@@ -62,9 +68,9 @@ const CategoryState = (props) => {
                 setProduct(json.products)
             }
             else
-                toast.error(json.message)
+                console.error(json.message)
         } catch (error) {
-            toast.error('Something went wrong')
+            console.error('Something went wrong')
         }
     }
 
@@ -82,7 +88,7 @@ const CategoryState = (props) => {
           setTotal(json.total)
   
       } catch (error) {
-          toast.error('Something went wrong')
+        console.error('Something went wrong')
       }
     }
 
@@ -103,10 +109,10 @@ const CategoryState = (props) => {
                 setProducts(json.products)
             }
             else
-                toast.error(json.message)
+            console.error(json.message)
             setLoading(false)
           } catch (error) {
-            toast.error('Something went wrong')
+            console.error('Something went wrong')
             setLoading(false)
         }
     }
@@ -127,11 +133,11 @@ const CategoryState = (props) => {
             setProducts(Products.concat(json.products))
           }
           else
-          toast.error(json.message)
+            console.error(json.message)
         setPage(page+1);
         setLoading(false)
       } catch (error) {
-          toast.error('Something went wrong')
+          console.error('Something went wrong')
           setLoading(false)
         }
     }
@@ -150,12 +156,12 @@ const CategoryState = (props) => {
           setTotalSearch(json.total)
   
       } catch (error) {
-          toast.error('Something went wrong')
+        console.error('Something went wrong')
       }
   }
   
     return (
-        <CategoryContext.Provider value={{activeStep, setActiveStep, handleNext, categories, setCategories, GetAllCategories, checked, setChecked, radio, setRadio, Products, setProducts, GetAllProducts, total, getTotal, setPage, FetchMoreProducts, loading, setLoading, Product, ShowAllProducts, search, setSearch, getTotalSearch, filter, setFilter}}>
+        <CategoryContext.Provider value={{categories, setCategories, GetAllCategories, checked, setChecked, radio, setRadio, Products, setProducts, GetAllProducts, total, getTotal, setPage, FetchMoreProducts, loading, setLoading, Product, ShowAllProducts, search, setSearch, getTotalSearch, filter, setFilter, deliveryDate, setDeliveryDate, loader, setLoader}}>
             {props.children}
         </CategoryContext.Provider>
     )

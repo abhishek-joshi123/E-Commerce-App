@@ -15,12 +15,12 @@ export default function About() {
           </div>
           <div className='About-Inform'>
             <section>
-              <p>With the trendiest, freshest, and most unique styles from across India and the world, AJIO invites you to express your personal style fearlessly, and with a confidence and optimism that cannot be easily shaken. </p>
+              <p>With the trendiest, freshest, and most unique styles from across India and the world, CARTOPIA invites you to express your personal style fearlessly, and with a confidence and optimism that cannot be easily shaken. </p>
             </section>
             <article>
                 <div>
-                  <p className='PHeading'>AJIO OWN</p>
-                  <p className='PPara'>AJIO OWN is our private label – that’s designed by us, and owned by you. If you’re looking for head-turning styles that are one-of-a-kind, AJIO OWN is what you should stock up on.</p>
+                  <p className='PHeading'>CARTOPIA OWN</p>
+                  <p className='PPara'>CARTOPIA OWN is our private label – that’s designed by us, and owned by you. If you’re looking for head-turning styles that are one-of-a-kind, CARTOPIA OWN is what you should stock up on.</p>
                 </div>
                 <div className='About-Inform-SecondDiv'>
                   <p className='PHeading'>Exclusive International Labels</p>
@@ -38,18 +38,18 @@ export default function About() {
                 <div>
                   <p className='PHeading'>Capsule Collections</p>
                   <p className='PPara'>If there’s an occasion to express your personal style, we’ve got a capsule collection to match. Shopping for a specific mood, event or style story has never been easier.</p>
-                  <p className='PHeading'>AJIO Style Tribe</p>
+                  <p className='PHeading'>CARTOPIA Style Tribe</p>
                   <p className='PPara'>A high-fashion editorial where we feature the internet’s coolest cats. It’s where you get to read the stories of these influencers and shop their stunning shoot looks.</p>
-                  <p className='PHeading'>#AJIOrecommends</p>
+                  <p className='PHeading'>#CARTOPIArecommends</p>
                   <p className='PPara'>From the hailstorm of trends coming down on us every season, we only recommend the ones guaranteed to put you on the hit list. Watch out for these regular highlights.</p>
                 </div>
                 <div className='About-Inform-SecondDiv'>
                   <p className='PHeading'>The Indie Experience</p>
                   <p className='PPara'>Our Indie styles are literally art you can wear. They are carefully handpicked, so that only the most authentic, handcrafted pieces by artisans across the country and globe make the cut.</p>
-                  <p className='PHeading'>#AJIOtoday</p>
+                  <p className='PHeading'>#CARTOPIAtoday</p>
                   <p className='PPara'>Our daily trend spotlight that lets you in on what’s hip and happening, and what you should be carting right now. Like they say, a trend each day keeps the blues away!</p>
-                  <p className='PHeading'>#recommendsAJIO</p>
-                  <p className='PPara'>This is where we celebrate and showcase our most stylish customers, who’ve given us a shout-out on social while dressed in a trendy AJIO style. You could very well be on the list too.</p>
+                  <p className='PHeading'>#recommendsCARTOPIA</p>
+                  <p className='PPara'>This is where we celebrate and showcase our most stylish customers, who’ve given us a shout-out on social while dressed in a trendy CARTOPIA style. You could very well be on the list too.</p>
                 </div>
             </article>
           </div>

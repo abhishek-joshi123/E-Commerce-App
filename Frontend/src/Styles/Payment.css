@@ -1,0 +1,24 @@
+
+.Make-Payment-btn {
+    width: 200px;
+    color: #ffffff;
+    background-color: #d4a048;
+    border-radius: 20px;
+    padding: 0 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;           
+    text-align: center;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    outline: none;
+    border: none;
+}
+
+.Make-Payment-btn:hover {
+    outline: 1px solid #fff;
+    outline-offset: -3px;
+}

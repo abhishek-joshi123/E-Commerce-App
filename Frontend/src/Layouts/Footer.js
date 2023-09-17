@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/Footer.css'
-import footerImage from '../Images/footerImage.jpg'
 import footerImage2 from '../Images/FooterImage2.png'
 import {GiCardExchange} from 'react-icons/gi'
 import {RiHandHeartLine} from 'react-icons/ri'
@@ -18,7 +17,6 @@ export default function Footer() {
             {(location.pathname === '/cart' || location.pathname === '/cart/delievery') && <div className= 'Footer-Payment-Heading'>
               <img src={footerImage2} alt="Not Loaded" />
             </div>}
-            <img className= 'Footer-Heading' src={footerImage} alt="Not Loaded" />
           </div>
           <div className='footer-images'>
             <div><GiCardExchange/></div>

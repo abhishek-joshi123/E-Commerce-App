@@ -1,7 +1,12 @@
 
 .All-Users-div {
-    width: 100%;
     background-color: #fff;
+    width: 100%;
+    color: #323232;
+    font-family: 'Lora', serif;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 .All-Users-div h1 {
@@ -9,4 +14,56 @@
     text-align: center;
     letter-spacing: 1px;
     font-family: 'Playfair Display', serif;
+}
+
+.buyer-details-div {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border-radius: 10px;
+    border: 1px solid #999;
+}
+
+.details-of-user {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.buyer-email, .buyer-pincode {
+    color: dodgerblue;
+}
+
+.delivery-address-of-user {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.buyer-details-heading {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.Status-select-dropdown {
+    width: 50%;
+    border: 1px solid #aeacac;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.Status-select-dropdown:active {
+    border: none;
+    outline: 1px solid #333;
 }

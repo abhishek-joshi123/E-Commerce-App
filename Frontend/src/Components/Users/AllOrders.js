@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import '../../../Styles/AllUsers.css'
-import { useAuth } from '../../Contexts/Auth';
+import '../../Styles/Orders.css'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../Contexts/Auth';
 import OrderProducts from './OrderProducts';
 
-export default function Orders() {
-  
-  const [orders, setOrders] = useState([]);
+
+export default function AllOrders() {
+    
+    const navigate = useNavigate()
+    const [orders, setOrders] = useState([]);
     const [auth] = useAuth()
 
     const getOrders = async(req, res) => {
       try {
-          const response = await fetch('http://localhost:5000/api/auth/all-orders', {
+          const response = await fetch('http://localhost:5000/api/auth/orders', {
             method: 'GET',
             headers: {
               'auth-token': auth?.token
@@ -27,18 +30,18 @@ export default function Orders() {
 
     useEffect(() => {
       getOrders()
+      // eslint-disable-next-line 
     }, [])
 
-
   return (
-    <div className='All-Users-div'>
-      <h1>All Orders</h1>
+    <div className='MyOrders-div'>
+      <p>MY Orders</p>
       {
         orders.length > 0 ? (
           <div className="all-ordered-products">
             {
               orders?.map((order) => {
-                return <OrderProducts key={order._id} order={order} getOrders={getOrders}/>
+                return <OrderProducts key={order._id} order={order}/>
               })
             }
           </div>
@@ -46,6 +49,7 @@ export default function Orders() {
           <div className="Products-empty">
             <div className="show-box">
                   <p>No requests for products or services have been received yet</p>
+                  <button className='Start-shopping-btn' onClick={() =>{navigate('/')}}>Start Shopping</button>
             </div>
         </div>
         )

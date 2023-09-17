@@ -28,7 +28,25 @@ export const getBasketTotalDiscount = (basket) => {
     }, 0)
 }   
 
+export const filterAndModifyProducts = (basket) => {
+    const productMap = new Map();
+  
+    basket.forEach(product => {
+      const id = product.id;
+      if (productMap.has(id)) {
+        productMap.get(id).Quantity += 1;
+      } else {
+        productMap.set(id, { ...product, Quantity: 1 });
+      }
+    });
+  
+    const uniqueProducts = Array.from(productMap.values());
+  
+    return uniqueProducts;
+}
  
+
+
 const reducer = (state, action) => {
     let newState;
     switch (action.type) {
@@ -42,6 +60,12 @@ const reducer = (state, action) => {
             newState = {
                 ...state,
                 basket: state.basket.filter(item => item.id !== action.id),
+            };
+            break;
+        case 'MAKE_BASKET_EMPTY':
+            newState = {
+                ...state,
+                basket: [],
             };
             break;
         case 'DECREMENT_FROM_BASKET':
