@@ -13,6 +13,7 @@ import { RxCross2 } from 'react-icons/rx';
 
 export default function FilterProducts() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
   const context = useContext(CategoryContext)
 
   const {checked, setChecked, radio, setRadio, categories, filter} = context
@@ -36,7 +37,7 @@ export default function FilterProducts() {
   const filterProduct = async() => {
 
     try {
-      const response = await fetch('http://localhost:5000/api/product/filter-product', {
+      const response = await fetch(`${host}/api/product/filter-product`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -55,7 +56,7 @@ export default function FilterProducts() {
 
   const filterByCategorySearch = async() => {
       try {
-        const response = await fetch(`http://localhost:5000/api/product/filter-products/${filter}`, {
+        const response = await fetch(`${host}/api/product/filter-products/${filter}`, {
             method: 'GET', 
         })
 

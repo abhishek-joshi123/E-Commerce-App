@@ -10,6 +10,7 @@ import {toast} from 'react-toastify'
 
 export default function AllCategories() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
   const [name, setName] = useState('')
   const [click, setClick] = useState(false)
   const [CategoryId, setCategoryId] = useState('')
@@ -38,7 +39,7 @@ export default function AllCategories() {
         e.preventDefault();
 
         try {
-          const response = await fetch(`http://localhost:5000/api/category/update-category/${CategoryId}`, {
+          const response = await fetch(`${host}/api/category/update-category/${CategoryId}`, {
             method: 'PUT',
             headers: {
               'content-type': 'application/json',

@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 
 export default function ProductCard(props) {
 
+    const host = process.env.REACT_APP_LOCAL_HOST
     const {product} = props;
     const navigate = useNavigate()
     const [{basket}, dispatch] = useStateValue()
@@ -31,7 +32,7 @@ export default function ProductCard(props) {
  
   return (
     <div className='Product-card-home-page'>
-        <img src={`http://localhost:5000/api/product/product-image/${product._id}`} alt="image" />
+        <img src={`${host}/api/product/product-image/${product._id}`} alt="image" />
             <div className="Product-content-home-pagge">
                 <div className='Product-name'>{product.name.substring(0,16)}...</div>
                 <div className='Product-description'>{product.description.substring(0,30)}...</div>

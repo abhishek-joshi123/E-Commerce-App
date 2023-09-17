@@ -6,7 +6,7 @@ import ProductCard from './ProductCard'
 import { CategoryContext } from '../../Contexts/CategoryContext'
 
 export default function GetAllprodcts() {
-
+    
     const navigate = useNavigate()
     const context = useContext(CategoryContext)
     const {Product, ShowAllProducts} = context;

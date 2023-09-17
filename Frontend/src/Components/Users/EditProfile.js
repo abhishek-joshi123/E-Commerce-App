@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 
 export default function EditProfile() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
   const [auth, setAuth] = useAuth()
   const {user} = auth
 
@@ -27,7 +28,7 @@ export default function EditProfile() {
 
   const UpdateUser = async(e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/auth/update-details', {
+    const response = await fetch(`${host}/api/auth/update-details`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

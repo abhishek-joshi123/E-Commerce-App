@@ -5,12 +5,13 @@ import OrderProducts from './OrderProducts';
 
 export default function Orders() {
   
+  const host = process.env.REACT_APP_LOCAL_HOST
   const [orders, setOrders] = useState([]);
     const [auth] = useAuth()
 
     const getOrders = async(req, res) => {
       try {
-          const response = await fetch('http://localhost:5000/api/auth/all-orders', {
+          const response = await fetch(`${host}/api/auth/all-orders`, {
             method: 'GET',
             headers: {
               'auth-token': auth?.token

@@ -11,6 +11,7 @@ import { useStateValue } from '../Contexts/CartContext'
 
 export default function ProductDetails() {
     
+    const host = process.env.REACT_APP_LOCAL_HOST
     const [Product, setProduct] = useState([])
     const params = useParams()
     const {slug} = params
@@ -23,7 +24,7 @@ export default function ProductDetails() {
 
     const getProduct = async() => {
         try {
-            const response = await fetch(`http://localhost:5000/api/product/get-product/${slug}`, {
+            const response = await fetch(`${host}/api/product/get-product/${slug}`, {
                 method: 'GET',
             })
 
@@ -75,7 +76,7 @@ export default function ProductDetails() {
     <Layout>
         <div className="ProductDetails-div">
             <div className="ProductDetails-left">
-                <img src={`http://localhost:5000/api/product/product-image/${Product?._id}`} alt='image' />
+                <img src={`${host}/api/product/product-image/${Product?._id}`} alt='image' />
             </div>
             <div className="ProductDetails-right">
                 <h2>{Product?.name}</h2>

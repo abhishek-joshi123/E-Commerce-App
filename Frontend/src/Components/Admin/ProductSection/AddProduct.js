@@ -13,6 +13,7 @@ const {Option} = Select
 
 export default function AddProduct() {
     
+  const host = process.env.REACT_APP_LOCAL_HOST
     const [open, setOpen] = useState(false);
     const [Categoryname, setCategoryName] = useState('')
     const [Image, setImage] = useState('')
@@ -53,7 +54,7 @@ export default function AddProduct() {
             Productdata.append("discount", discount)
             Productdata.append("quantity", quantity)
             Productdata.append("shipping", shipping)
-            const response = await fetch('http://localhost:5000/api/product/create-product', {
+            const response = await fetch(`${host}/api/product/create-product`, {
               method: 'POST',
               headers: {
                 'auth-token': auth?.token

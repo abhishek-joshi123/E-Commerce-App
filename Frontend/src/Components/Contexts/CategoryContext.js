@@ -7,6 +7,8 @@ const CategoryContext = createContext();
 
 const CategoryState = (props) => {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
+
     const [checked, setChecked] = useState([])
     const [radio, setRadio] = useState([])
     const [categories, setCategories] = useState([])
@@ -35,7 +37,7 @@ const CategoryState = (props) => {
     const GetAllCategories = async() => {
 
         try {
-          const response = await fetch(`http://localhost:5000/api/category/get-categories`, {
+          const response = await fetch(`${host}/api/category/get-categories`, {
             method: 'GET',
             headers: {
               'content-type': 'application/json', 
@@ -58,7 +60,7 @@ const CategoryState = (props) => {
       const ShowAllProducts = async() => {
 
         try {
-            const response = await fetch('http://localhost:5000/api/product/all-products', {
+            const response = await fetch(`${host}/api/product/all-products`, {
                 method: 'GET'
             })
 
@@ -77,7 +79,7 @@ const CategoryState = (props) => {
     const getTotal = async() => {
 
       try {
-        const response = await fetch('http://localhost:5000/api/product/product-count', {
+        const response = await fetch(`${host}/api/product/product-count`, {
           method: 'GET',
           headers: {
             'content-type': 'application/json',
@@ -96,7 +98,7 @@ const CategoryState = (props) => {
 
         try {
             setLoading(true)
-            const response = await fetch(`http://localhost:5000/api/product/product-list/${page}`, {
+            const response = await fetch(`${host}/api/product/product-list/${page}`, {
                 method: 'GET',
                 headers: {
                   'content-type': 'application/json', 
@@ -120,7 +122,7 @@ const CategoryState = (props) => {
       const FetchMoreProducts = async() => {
         try {
           setLoading(true)
-          const response = await fetch(`http://localhost:5000/api/product/product-list/${page+1}`, {
+          const response = await fetch(`${host}/api/product/product-list/${page+1}`, {
             method: 'GET',
             headers: {
               'content-type': 'application/json', 
@@ -145,7 +147,7 @@ const CategoryState = (props) => {
     const getTotalSearch = async() => {
 
       try {
-        const response = await fetch(`http://localhost:5000/api/product/search-count/${search}`, {
+        const response = await fetch(`${host}/api/product/search-count/${search}`, {
           method: 'GET',
           headers: {
             'content-type': 'application/json',

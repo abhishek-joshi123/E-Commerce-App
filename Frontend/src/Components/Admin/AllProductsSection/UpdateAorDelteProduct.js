@@ -10,6 +10,7 @@ const {Option} = Select
 
 export default function UpdateorDelete() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
     const [id, setId] = useState('')
     const [Categoryname, setCategoryName] = useState('')
     const [Image, setImage] = useState('')
@@ -40,7 +41,7 @@ export default function UpdateorDelete() {
 
 
       const getSingleProduct = async () => {
-            const response = await fetch(`http://localhost:5000/api/product/get-product/${slug}`, {
+            const response = await fetch(`${host}/api/product/get-product/${slug}`, {
                 method: 'GET',
                 headers: {
                     'auth-token': auth?.token
@@ -83,7 +84,7 @@ export default function UpdateorDelete() {
             Productdata.append("discount", discount)
             Productdata.append("quantity", quantity)
             Productdata.append("shipping", shipping)
-            const response = await fetch(`http://localhost:5000/api/product/update-product/${id}`, {
+            const response = await fetch(`${host}/api/product/update-product/${id}`, {
               method: 'PUT',
               headers: {
                 'auth-token': auth?.token
@@ -110,7 +111,7 @@ export default function UpdateorDelete() {
             
         try {
 
-          const response = await fetch(`http://localhost:5000/api/product/delete-product/${id}`, {
+          const response = await fetch(`${host}/api/product/delete-product/${id}`, {
             method: 'DELETE',
             headers: {
               'auth-token': auth?.token

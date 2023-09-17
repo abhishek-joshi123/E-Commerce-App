@@ -12,6 +12,7 @@ import CartProducts from './CartProducts'
 
 export default function Cart() { 
 
+  
   const navigate = useNavigate()
   const [{basket}, dispatch] = useStateValue()
   const Price = getBasketTotal(basket)

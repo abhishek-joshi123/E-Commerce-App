@@ -6,13 +6,14 @@ import Spinner from '../Spinner'
 
 export default function AdminRoute() {
 
+    const host = process.env.REACT_APP_LOCAL_HOST
     const [ok, setOk] = useState(false)
     const [auth] = useAuth()
 
     useEffect(() =>{
 
         const autoCheck = async() => {
-            const response = await fetch('http://localhost:5000/api/auth/admin-auth', {
+            const response = await fetch(`${host}/api/auth/admin-auth`, {
                 method: 'GET',
                 headers: {
                     'auth-token':auth?.token

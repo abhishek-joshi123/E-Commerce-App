@@ -10,6 +10,7 @@ import { CategoryContext } from "../Contexts/CategoryContext";
  
 export default function SignUp() {
   
+  const host = process.env.REACT_APP_LOCAL_HOST
   const context = useContext(CategoryContext)
   const {setLoader} = context;
 
@@ -19,15 +20,14 @@ export default function SignUp() {
   const [address, setAdress] = useState("");
   const [answer, setAnswer] = useState("");
   const [phone, setPhone] = useState("");
-
-  const host = process.env.REACT_APP_LOCAL_HOST
+  
   const navigate = useNavigate();
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoader(true);
-      const response = await fetch(`http://localhost:5000/api/auth/register`, {
+      const response = await fetch(`${host}/api/auth/register`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

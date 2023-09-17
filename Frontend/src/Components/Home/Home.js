@@ -20,6 +20,7 @@ export default function Home() {
   const context = useContext(CategoryContext)
   const {categories, GetAllCategories, Products, GetAllProducts, total, getTotal, FetchMoreProducts, loading, checked, setChecked, radio, setRadio} = context
   const navigate = useNavigate()
+  
 
   useEffect(() => {
       GetAllCategories()

@@ -14,6 +14,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Payment() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
   const [{basket}, dispatch] = useStateValue()
   const Price = getBasketTotal(basket)
   const TotalPrice = getBasketTotalPrice(basket)
@@ -36,7 +37,7 @@ export default function Payment() {
   const getPaymentGetwayToken = async() => {
 
     try {
-      const response = await fetch('http://localhost:5000/api/product/braintree/token', {
+      const response = await fetch(`${host}/api/product/braintree/token`, {
         method: 'GET'
       } )
       const json = await response.json()
@@ -53,7 +54,7 @@ export default function Payment() {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const response = await fetch('http://localhost:5000/api/product/braintree/payment', {
+      const response = await fetch(`${host}/api/product/braintree/payment`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

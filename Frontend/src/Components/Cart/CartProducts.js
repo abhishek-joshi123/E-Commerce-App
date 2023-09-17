@@ -24,6 +24,7 @@ const style = {
 
 export default function CartProducts(props) {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
   const {item} = props;
   const {id, name, slug, description, price, discount, Quantity} = item;
 
@@ -64,7 +65,7 @@ export default function CartProducts(props) {
 
   return (
     <div className="Cart-product-container">
-        <img src={`http://localhost:5000/api/product/product-image/${id}`} alt="image" />
+        <img src={`${host}/api/product/product-image/${id}`} alt="image" />
         <div className="product-details-cart">
         <Link to={`/product/${slug}`}>
           <strong>{name.split(' ').slice(0,4).join(' ')}</strong>

@@ -11,6 +11,7 @@ import { CategoryContext } from '../Contexts/CategoryContext'
 
 export default function SignIn() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
@@ -24,7 +25,7 @@ export default function SignIn() {
 
       try {
         setLoader(true);
-        const response = await fetch(`http://localhost:5000/api/auth/login`, {
+        const response = await fetch(`${host}/api/auth/login`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

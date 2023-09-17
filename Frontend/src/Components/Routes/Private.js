@@ -6,13 +6,14 @@ import Spinner from '../Spinner'
 
 export default function PrivateRoute() {
 
+    const host = process.env.REACT_APP_LOCAL_HOST
     const [ok, setOk] = useState(false)
     const [auth] = useAuth()
 
     useEffect(() =>{
 
         const autoCheck = async() => {
-            const response = await fetch('http://localhost:5000/api/auth/user-auth', {
+            const response = await fetch(`${host}/api/auth/user-auth`, {
                 method: 'GET',
                 headers: {
                     'auth-token':auth?.token

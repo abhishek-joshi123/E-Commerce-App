@@ -18,7 +18,8 @@ import { CategoryContext } from '../Contexts/CategoryContext'
 
 
 export default function Delievery() {
- 
+  
+  const host = process.env.REACT_APP_LOCAL_HOST
   const [auth, setAuth] = useAuth()
   const {user} = auth;
   const context = useContext(CategoryContext)
@@ -288,7 +289,7 @@ export default function Delievery() {
   const updatedelieveryAddress = async(e) => {
     e.preventDefault()
     try {
-      const response = await fetch('http://localhost:5000/api/auth/update-delivery-address', {
+      const response = await fetch(`${host}/api/auth/update-delivery-address`, {
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json',

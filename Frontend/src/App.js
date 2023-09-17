@@ -32,10 +32,10 @@ import { useEffect } from 'react';
 
 function App() { 
 
-  // useEffect(() => {
-  //   fetch("https://abhishek-joshi.onrender.com")
-  //     .then((res) => res.json())
-  // },[]);
+  useEffect(() => {
+    fetch("https://cartopia-ocrk.onrender.com")
+      .then((res) => res.json())
+  },[]);
 
   return ( 
       <>    

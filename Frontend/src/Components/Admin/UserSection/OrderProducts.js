@@ -7,6 +7,8 @@ import { useAuth } from '../../Contexts/Auth';
 const {Option} = Select
 
 export default function OrderProducts(props) {
+
+    const host = process.env.REACT_APP_LOCAL_HOST
     const {order, getOrders} = props;
     const {products, payment, status, buyer, createdAt} = order;
     const {name, email, phone, DelieveryAddress} = buyer;
@@ -18,7 +20,7 @@ export default function OrderProducts(props) {
 
     const handleStatusChange = async(OrderedId, value) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/auth/orders-status/${OrderedId}`, {
+            const response = await fetch(`${host}/api/auth/orders-status/${OrderedId}`, {
             method: 'PUT',
             headers: {
               'content-type': 'application/json',

@@ -7,6 +7,7 @@ import { CategoryContext } from '../../Contexts/CategoryContext'
 
 export default function AdminCategory() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
   const [name, setName] = useState('')
   const [auth] = useAuth()
   const context = useContext(CategoryContext)
@@ -16,7 +17,7 @@ export default function AdminCategory() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:5000/api/category/create-category`, {
+      const response = await fetch(`${host}/api/category/create-category`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

@@ -10,6 +10,7 @@ import SpinLoader from './SpinLoader'
 
 export default function Search() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
    const [page, setPage] = useState(1)
    const navigate = useNavigate()
     const context = useContext(CategoryContext)
@@ -19,7 +20,7 @@ export default function Search() {
 
       try {
           setLoading(true)
-          const response = await fetch(`http://localhost:5000/api/product/search-product/${page+1}/${search}`, {
+          const response = await fetch(`${host}/api/product/search-product/${page+1}/${search}`, {
               method: 'GET',
               headers: {
                   'content-type': 'application/json',

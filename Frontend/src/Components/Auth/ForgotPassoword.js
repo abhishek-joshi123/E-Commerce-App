@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 export default function ForgotPassword() {
 
+  const host = process.env.REACT_APP_LOCAL_HOST
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [answer, setAnswer] = useState("")
@@ -18,7 +19,7 @@ export default function ForgotPassword() {
 
       try {
         
-        const response = await fetch(`http://localhost:5000/api/auth/forgot-password`, {
+        const response = await fetch(`${host}/api/auth/forgot-password`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

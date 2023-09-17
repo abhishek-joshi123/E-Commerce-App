@@ -7,6 +7,7 @@ import { CategoryContext } from '../../Contexts/CategoryContext'
 
 export default function CategoryItem(props) {
 
+    const host = process.env.REACT_APP_LOCAL_HOST
     const {category, setClick, setName, setCategoryId} = props
     const [auth] = useAuth()
     const context = useContext(CategoryContext)
@@ -23,7 +24,7 @@ export default function CategoryItem(props) {
         e.preventDefault();
   
         try {
-          const response = await fetch(`http://localhost:5000/api/category/delete-category/${category?._id}`, {
+          const response = await fetch(`${host}/api/category/delete-category/${category?._id}`, {
             method: 'DELETE',
             headers: {
               'content-type': 'application/json',
