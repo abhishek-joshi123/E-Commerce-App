@@ -48,7 +48,7 @@ export default function Navbar() {
             setActiveSecond(true);
             setActiveThird(true);
         }
-    },[])
+    },[location.pathname])
     
     useEffect(() => {
         function handleSearchOpen() {

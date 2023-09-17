@@ -27,9 +27,16 @@ import FilterProducts from './Components/Home/FilterProducts';
 import Cart from './Components/Cart/Cart';
 import Delievery from './Components/Cart/Delievery';
 import Payment from './Components/Cart/Payment';
+import { useEffect } from 'react';
 
 
 function App() { 
+
+  // useEffect(() => {
+  //   fetch("https://abhishek-joshi.onrender.com")
+  //     .then((res) => res.json())
+  // },[]);
+
   return ( 
       <>    
         <ToastContainer/>

@@ -19,10 +19,14 @@ const port = process.env.PORT || 5000;
 //     origin: ["http://localhost:3000", "https://frontend-notebook.onrender.com"]
 // }
 
-// app.use(cors(corsOptions))
-app.use(cors());
+const corsOptions = {
+    origin: "http://localhost:3000"
+}
+
+app.use(cors(corsOptions))
+// app.use(cors());
  
-app.use(express.json())    //        this is a middleware ans is required to send request through json..
+app.use(express.json())    //    this is a middleware ans is required to send request through json..
 
 // available routes..
 app.use('/api/auth', AuthRoute)
