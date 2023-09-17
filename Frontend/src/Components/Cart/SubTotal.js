@@ -12,7 +12,7 @@ export default function SubTotal(props) {
     const {user} = auth
     const navigate = useNavigate()
     const [{basket}, dispatch] = useStateValue()
-
+ 
     const handleNavigation = () => {
         if(location.pathname === '/cart')
             navigate('/cart/delivery')

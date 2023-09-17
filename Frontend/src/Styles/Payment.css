@@ -22,3 +22,22 @@
     outline: 1px solid #fff;
     outline-offset: -3px;
 }
+
+.payment-alert {
+    border: 1px solid #eee;
+    padding: 15px;
+    background-color: #fafafa;
+    width: 100%;
+}
+
+.payment-alert span {
+    font-size: 14px;
+    color: #202020;
+    font-weight: 400;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.payment-alert p {
+    margin-top: 5px;
+}

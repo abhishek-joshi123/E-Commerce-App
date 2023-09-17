@@ -23,7 +23,7 @@ export default function Payment() {
   const [clientToken, setClientToken] = useState('')
   const [auth] = useAuth()
   const [instance, setinstance] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false) 
   const navigate = useNavigate()
 
   const MakeCartEmpty = () => {
@@ -92,6 +92,15 @@ export default function Payment() {
       <div className="Cart-div">
             <div className="div-below-image">
               <div className="cart-left-div">
+              <div className='payment-alert'>
+                <h3 className='SubTotal-heading'>Payment policy</h3>
+                <span className='policy-para'>We are currently in the testing phase of our Ecommerce website and for the moment, we are accepting transactions using some specific test card numbers for demonstration purposes. This is a temporary measure to ensure the smooth functioning of our systems and to facilitate testing of the checkout process.</span>
+                <p><strong>Test Card Number: </strong>4242 4242 4242 4242</p>
+                <p><strong>Test Card Number: </strong>4111 1111 1111 1111</p>
+                <p><strong>Expiry Date: </strong>any valid upcomming date</p>
+                <p><strong>CVV: </strong>any 3 digit number of your choice</p>
+                <span>Your security is of utmost importance to us. All transactions made using this test card number are completely secure and do not involve any actual financial transactions.</span>
+              </div>
                 {(clientToken && basket?.length > 0) &&
                   <div>
                   <DropIn

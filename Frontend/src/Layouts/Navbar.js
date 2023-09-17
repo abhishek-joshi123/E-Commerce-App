@@ -39,13 +39,13 @@ export default function Navbar() {
             setActiveThird(false);
         }
         else if(location.pathname === '/cart/delivery'){
-            setActiveFirst(false);
+            setActiveFirst(true);
             setActiveSecond(true);
             setActiveThird(false);
         }
         else{
-            setActiveFirst(false);
-            setActiveSecond(false);
+            setActiveFirst(true);
+            setActiveSecond(true);
             setActiveThird(true);
         }
     },[])
