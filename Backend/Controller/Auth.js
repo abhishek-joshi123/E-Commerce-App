@@ -15,7 +15,7 @@ export const registercontroller = async(req, res) => {
             return res.status(400).json({success:false, Esuccess:true, errors: errors.array()});
         }
 
-        const {name, email, password, phone, address, answer} = req.body;
+        const {name, email, password, phone, answer} = req.body;
 
         try {
 
@@ -33,7 +33,7 @@ export const registercontroller = async(req, res) => {
             const HashedPassword = await HashPassword(password)
 
             //  save the user...
-            const user = await new userModel({name, email, phone, address, answer, password:HashedPassword}).save()
+            const user = await new userModel({name, email, phone, answer, password:HashedPassword}).save()
 
             res.status(201).send({
                 success: true,

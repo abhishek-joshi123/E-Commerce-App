@@ -16,7 +16,7 @@ const app = express()
 const port = process.env.PORT || 5000;
 
 const corsOptions = {    
-    origin: ["http://localhost:3000", "https://cartopia-shop.onrender.com"]
+    origin: ["http://localhost:3000", "https://cartopia-shop.onrender.com", "https://cartopia-shop.onrender.com/sign-up"]
 }
 
 app.use(cors(corsOptions))

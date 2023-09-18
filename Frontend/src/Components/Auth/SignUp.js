@@ -17,7 +17,6 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [address, setAdress] = useState("");
   const [answer, setAnswer] = useState("");
   const [phone, setPhone] = useState("");
   
@@ -32,7 +31,7 @@ export default function SignUp() {
         headers: {
           'content-type': 'application/json',
         }, 
-        body: JSON.stringify({name, email, password, address, phone, answer})
+        body: JSON.stringify({name, email, password, phone, answer})
       })
 
       const json = await response.json()
@@ -91,15 +90,6 @@ export default function SignUp() {
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
-                }}
-                required
-              />
-              <input
-                type="text"
-                placeholder="Enter your permanent address"
-                value={address}
-                onChange={(e) => {
-                  setAdress(e.target.value);
                 }}
                 required
               />

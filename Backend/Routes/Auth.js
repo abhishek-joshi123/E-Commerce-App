@@ -15,7 +15,6 @@ router.post('/register',[
     body('email', 'Enter a valid Email').isEmail(),
     body('password', 'Password should contain atleast 8 characters').isLength({min:6}),
     body('phone', 'Enter a valid Phone number').isLength({min:10}),
-    body('address', 'Enter a valid Address').isLength({min:3}),
     body('answer', 'Enter a valid answer').isLength({min:3})
 ], registercontroller)
 
