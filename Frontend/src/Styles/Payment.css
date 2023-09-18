@@ -34,8 +34,6 @@
     font-size: 14px;
     color: #202020;
     font-weight: 400;
-    word-wrap: break-word;
-    word-break: break-all;
 }
 
 .payment-alert p {

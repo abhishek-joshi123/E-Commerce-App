@@ -75,7 +75,7 @@ export default function SignIn() {
                       <div className='Login-btn'>
                         <button className='Log-btn' onClick={HandleSubmit}>Log in</button>
                         <Link to="/forgot-password"><p>Forgot Your Password?</p></Link>
-                        <button className='Google-SignIn'><FcGoogle style={{fontSize: "1.5em", marginLeft: "5px"}}/><p>Continue with google</p></button>
+                        <button className='Google-SignIn' disabled={true}><FcGoogle style={{fontSize: "1.5em", marginLeft: "5px"}}/><p>Continue with google</p></button>
                         <p>or</p>
                         <Link to="/sign-up">
                           <button className='Log-btn'>Create Account</button>
