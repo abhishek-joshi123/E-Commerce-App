@@ -20,6 +20,7 @@ import LinearProgress from '@mui/material/LinearProgress';
  
 export default function Navbar() {
 
+    const host = process.env.REACT_APP_LOCAL_HOST
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [Click, setClick] = useState(false)
     const [auth, setAuth] = useAuth()
@@ -78,7 +79,7 @@ export default function Navbar() {
     const handleSearch = async(e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/product/search-product/${1}/${search}`, {
+            const response = await fetch(`${host}/api/product/search-product/${1}/${search}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',
