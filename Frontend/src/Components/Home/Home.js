@@ -18,7 +18,7 @@ export default function Home() {
 
   const [click, setClick] = useState(true)
   const context = useContext(CategoryContext)
-  const {categories, GetAllCategories, Products, GetAllProducts, total, getTotal, FetchMoreProducts, loading, checked, setChecked, radio, setRadio} = context
+  const {categories, GetAllCategories, Products, GetAllProducts, total, getTotal, FetchMoreProducts, loading, checked, setChecked, radio, setRadio, Filtersloader, Productsloader} = context
   const navigate = useNavigate()
   
 
@@ -106,25 +106,31 @@ export default function Home() {
             >
             {inputList('left')}
           </SwipeableDrawer>
-          <div className="Home-left">
-            <h1>Filter By Categories</h1>
-            <div className={`Home-Categories ${click ? "category-less": "category-more"}`}>
-                {
-                  categories?.map((category) => {
-                    return <CategoryBox key={category._id} category={category} checked={checked} setChecked={setChecked}/>
-                  })
-                }
-            </div>
-              <span className='show-all-btn' onClick={() => {setClick(!click)}}>{click ? 'View More' : 'View Less'}</span>
-              <h1>Filter By Price</h1>
-              <div className='Home-Prices'>
-                {
-                  prices?.map((price) => {
-                    return <Pricebox key={price._id} price={price} setRadio={setRadio}/>
-                  })
-                }
+          {
+            !Filtersloader ? (
+              <div className="Home-left">
+                <h1>Filter By Categories</h1>
+                <div className={`Home-Categories ${click ? "category-less": "category-more"}`}>
+                    {
+                      categories?.map((category) => {
+                        return <CategoryBox key={category._id} category={category} checked={checked} setChecked={setChecked}/>
+                      })
+                    }
+                </div>
+                  <span className='show-all-btn' onClick={() => {setClick(!click)}}>{click ? 'View More' : 'View Less'}</span>
+                  <h1>Filter By Price</h1>
+                  <div className='Home-Prices'>
+                    {
+                      prices?.map((price) => {
+                        return <Pricebox key={price._id} price={price} setRadio={setRadio}/>
+                      })
+                    }
+                  </div>
               </div>
-          </div>
+            ) : (
+              <div className="Home-left-skeleton"></div>
+            )
+          }
           <div className="Home-right">
           <InfiniteScroll
             dataLength={Products.length}
@@ -132,13 +138,26 @@ export default function Home() {
             hasMore={Products.length !== total}
             loader={loading && <SpinLoader/>}
           > 
-            <div className='Home-Products'>
-                    {
-                      Products?.map((product) => {
-                        return <ProductCard key={product._id} product={product} />
-                      })
-                    }
-            </div>
+            {
+              !Productsloader ? (
+                  <div className='Home-Products'>
+                      {
+                        Products?.map((product) => {
+                          return <ProductCard key={product._id} product={product} />
+                        })
+                      }
+              </div>
+              ) : (
+                    <div className='Home-Products'>
+                        <div className='Product-card-home-page-skeleton'></div>
+                        <div className='Product-card-home-page-skeleton'></div>
+                        <div className='Product-card-home-page-skeleton'></div>
+                        <div className='Product-card-home-page-skeleton'></div>
+                        <div className='Product-card-home-page-skeleton'></div>
+                        <div className='Product-card-home-page-skeleton'></div>
+                </div>
+              )
+            }
             </InfiniteScroll>
           </div>
       </div>

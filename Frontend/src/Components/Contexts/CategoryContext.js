@@ -21,6 +21,8 @@ const CategoryState = (props) => {
     const [Totalsearch, setTotalSearch] = useState(0)
     const [filter, setFilter] = useState('')
     const [loader, setLoader] = useState(false)
+    const [Productsloader, setProductsloader] = useState(false)
+    const [Filtersloader, setFiltersloader] = useState(false)
     
     const currentDate = new Date();
     const futureDate = addDays(currentDate, 5);
@@ -37,42 +39,48 @@ const CategoryState = (props) => {
     const GetAllCategories = async() => {
 
         try {
+          setFiltersloader(true);
           const response = await fetch(`${host}/api/category/get-categories`, {
             method: 'GET',
             headers: {
               'content-type': 'application/json', 
             }
           })
-  
+          
           const json = await response.json() 
-  
+          
           if(json?.success) {
             setCategories(json.category)
           }
           else{
             console.error(json.message)
           }
+          setFiltersloader(false);
         } catch (error) {
           console.error("Something went wrong");
+          setFiltersloader(false);
         }
     }
     
       const ShowAllProducts = async() => {
 
         try {
-            const response = await fetch(`${host}/api/product/all-products`, {
-                method: 'GET'
-            })
-
-            const json = await response.json()
-
-            if(json?.success) {
-                setProduct(json.products)
-            }
-            else
-                console.error(json.message)
+          setProductsloader(true)
+          const response = await fetch(`${host}/api/product/all-products`, {
+            method: 'GET'
+          })
+          
+          const json = await response.json()
+          
+          if(json?.success) {
+            setProduct(json.products)
+          }
+          else
+          console.error(json.message)
+          setProductsloader(false)
         } catch (error) {
             console.error('Something went wrong')
+            setProductsloader(false)
         }
     }
 
@@ -98,6 +106,7 @@ const CategoryState = (props) => {
 
         try {
             setLoading(true)
+            setProductsloader(true)
             const response = await fetch(`${host}/api/product/product-list/${page}`, {
                 method: 'GET',
                 headers: {
@@ -113,9 +122,11 @@ const CategoryState = (props) => {
             else
             console.error(json.message)
             setLoading(false)
+            setProductsloader(false)
           } catch (error) {
             console.error('Something went wrong')
             setLoading(false)
+            setProductsloader(false)
         }
     }
 
@@ -163,7 +174,7 @@ const CategoryState = (props) => {
   }
   
     return (
-        <CategoryContext.Provider value={{categories, setCategories, GetAllCategories, checked, setChecked, radio, setRadio, Products, setProducts, GetAllProducts, total, getTotal, setPage, FetchMoreProducts, loading, setLoading, Product, ShowAllProducts, search, setSearch, getTotalSearch, filter, setFilter, deliveryDate, setDeliveryDate, loader, setLoader}}>
+        <CategoryContext.Provider value={{categories, setCategories, GetAllCategories, checked, setChecked, radio, setRadio, Products, setProducts, GetAllProducts, total, getTotal, setPage, FetchMoreProducts, loading, setLoading, Product, ShowAllProducts, search, setSearch, getTotalSearch, filter, setFilter, deliveryDate, setDeliveryDate, loader, setLoader, Filtersloader, setFiltersloader, Productsloader, setProductsloader}}>
             {props.children}
         </CategoryContext.Provider>
     )
